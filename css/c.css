@@ -1,0 +1,91 @@
+/**
+* c.css
+*
+* @save-up: [../js/td.js, ../td.html]
+*
+* last update: 2010-11-24 10:39:53
+*/
+
+@font-face {
+font-family: "Essays 1743";
+font-weight: normal;
+font-style: normal;
+font-variant: normal;
+src: url("fonts/essays1743-min.eot");
+src: local("Essays 1743"), url("fonts/essays1743-min.ttf");
+}
+@font-face {
+font-family: "Courier New";
+font-weight: normal;
+font-style: normal;
+font-variant: normal;
+font-size: 16px;
+/*src: url("fonts/essays1743-min.eot");*/
+src: local("Courier New"), url("fonts/cour.ttf");
+}
+html, body {
+margin: 0;
+padding: 0;
+font-size: 12px;
+line-height: 20px;
+background: #f5f5f5;
+font-family: Verdana, "Times New Roman", serif;
+}
+h1, h2 {
+padding: 0;
+margin: 0;
+font-weight: bold;
+}
+h1 {
+line-height: 48px;
+font-size: 18px;
+font-family: "Essays 1743", Verdana, "Times New Roman", serif;
+letter-spacing: 0.12em;
+}
+h2 {
+line-height: 30px;
+font-size: 14px;
+}
+
+#wrapper {
+margin: 0 auto;
+padding: 8px 24px;
+}
+#td-board {
+display: none;
+}
+#td-board canvas#td-canvas {
+position: relative;
+background: #fff;
+border: solid 2px #ccc;
+}
+#td-loading {
+font-size: 18px;
+line-height: 48px;
+padding: 60px 0 120px 0;
+font-style: italic;
+}
+#note {
+font-style: italic;
+font-size: 14px;
+}
+#logs {
+margin: 60px 0 16px 0;
+background: #e5f5f5;
+padding: 8px;
+}
+#logs span.date {
+font-style: italic;
+font-size: 14px;
+padding-right: 1em;
+}
+#logs ul {
+padding: 0 0 0 2em;
+margin: 0;
+list-style: none;
+}
+#logs ul li {
+padding: 4px 0;
+}
+#about {
+}

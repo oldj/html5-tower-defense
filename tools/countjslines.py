@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# 统计当前文件夹下的 js 一共有多少行
+# 统计指定文件夹下的 js 一共有多少行
 
 import os
 from glob import glob

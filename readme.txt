@@ -2,9 +2,9 @@ HTML5 塔防游戏
 
 ==================================================
 
-作者：oldj
-Email：oldj.wu@gmail.com
-Blog：http://oldj.net/
+Author: oldj
+Email: oldj.wu@gmail.com
+Blog: http://oldj.net/
 Source: https://github.com/oldj/html5-tower-defense
 
 --------------------------------------------------

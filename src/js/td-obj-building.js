@@ -139,27 +139,29 @@ var building_obj = {
 	},
 	/**
 	 * 将本建筑彻底删除
-	 * TODO: 本函数还需要检查
 	 */
 	remove: function () {
 		if (this.grid) this.grid.building = null;
 		this.hide();
 		this.del();
 	},
+	/**
+	 * 寻找一个目标（怪物）
+	 */
 	findTaget: function () {
 		if (!this.is_weapon || this.is_pre_building || !this.grid) return;
 
 		var cx = this.cx, cy = this.cy,
 			range2 = Math.pow(this.range_px, 2);
 
-		if (this.target && this.target.is_valid) {
-			// 检查当前目标是否仍在视野范围内
-			if (Math.pow(this.target.cx - cx, 2) + Math.pow(this.target.cy - cy, 2) <= range2)
-				return;
-		}
+		// 如果当前建筑有目标，并且目标还是有效的，并且目标仍在射程内
+		if (this.target && this.target.is_valid &&
+				Math.pow(this.target.cx - cx, 2) + Math.pow(this.target.cy - cy, 2) <= range2)
+			return;
 
-		this.target = this.map.anyMonster(function () {
-			return Math.pow(this.cx - cx, 2) + Math.pow(this.cy - cy, 2) <= range2;
+		// 在进入射程的怪物中寻找新的目标
+		this.target = this.map.anyMonster(function (obj) {
+			return Math.pow(obj.cx - cx, 2) + Math.pow(obj.cy - cy, 2) <= range2;
 		});
 	},
 	getTargetPosition: function () {
@@ -391,8 +393,8 @@ var bullet_obj = {
 		var cx = this.cx,
 			cy = this.cy,
 			r = this.r,
-			monster = this.map.anyMonster(function () {
-				return Math.pow(this.cx - cx, 2) + Math.pow(this.cy - cy, 2) <= Math.pow(this.r + r, 2) * 2;
+			monster = this.map.anyMonster(function (obj) {
+				return Math.pow(obj.cx - cx, 2) + Math.pow(obj.cy - cy, 2) <= Math.pow(obj.r + r, 2) * 2;
 			});
 
 		if (monster) {

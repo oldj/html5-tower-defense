@@ -55,6 +55,11 @@ TD.lang = {
 	strLen2: function (s) {
 		return s.replace(/[^\x00-\xff]/g, "**").length;
 	},
+	/**
+	 * 对一个数组的每一个元素执行指定方法
+	 * @param list {Array}
+	 * @param f {Function}
+	 */
 	each: function (list, f) {
 		if (Array.prototype.forEach) {
 			list.forEach(f);
@@ -64,14 +69,17 @@ TD.lang = {
 			}
 		}
 	},
-	any: function (list, f, args) {
-		var i, l, args2 = [];
-		args = args || [];
-		for (i = 1, l = args.length; i < l; i ++) {
-			args2.push(args[i]);
-		}
-		for (i = 0, l = list.length; i < l; i ++) {
-			if (f.apply(list[i], args))
+	/**
+	 * 对一个数组的每一项依次执行指定方法，直到某一项的返回值为 true
+	 * 返回第一个令 f 值为 true 的元素，如没有元素令 f 值为 true，则
+	 * 返回 null
+	 * @param list {Array}
+	 * @param f {Function}
+	 * @return {Object}
+	 */
+	any: function (list, f) {
+		for (var i = 0, l = list.length; i < l; i ++) {
+			if (f(list[i]))
 				return list[i];
 		}
 		return null;
@@ -79,6 +87,7 @@ TD.lang = {
 	/**
 	 * 依次弹出列表中的元素，并对其进行操作
 	 * 注意，执行完毕之后原数组将被清空
+	 * 类似于 each，不同的是这个函数执行完后原数组将被清空
 	 * @param list {Array}
 	 * @param f {Function}
 	 */
@@ -117,6 +126,9 @@ TD.lang = {
 		}
 		return a.join("");
 	},
+	/**
+	 * 空函数
+	 */
 	nullFunc: function () {},
 	/**
 	 * 判断两个数组是否相等
@@ -132,9 +144,10 @@ TD.lang = {
 	},
 	/**
 	 * 将所有 s 的属性复制给 r
-	 * @param r <object>
-	 * @param s <object>
-	 * @param is_overwrite <boolean|undefined> 如指定为 false ，则不覆盖已有的值
+	 * @param r {Object}
+	 * @param s {Object}
+	 * @param is_overwrite {Boolean} 如指定为 false ，则不覆盖已有的值，其它值
+	 *      包括 undefined ，都表示 s 中的同名属性将覆盖 r 中的值
 	 */
 	mix: function (r, s, is_overwrite) {
 		if (!s || !r) return r;

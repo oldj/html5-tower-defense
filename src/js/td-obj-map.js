@@ -91,8 +91,8 @@ var map_obj = {
 		}
 	},
 	checkHasWeapon: function () {
-		this.has_weapon = (this.anyBuilding(function () {
-			return this.is_weapon;
+		this.has_weapon = (this.anyBuilding(function (obj) {
+			return obj.is_weapon;
 		}) != null);
 	},
 	getGrid: function (mx, my) {

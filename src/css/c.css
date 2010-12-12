@@ -1,0 +1,70 @@
+/**
+* c.css
+*
+* @save-up: [../js/td.js, ../td.html]
+*
+* last update: 2010-11-22 10:50:50
+*/
+html, body {
+margin: 0;
+padding: 0;
+font-size: 12px;
+line-height: 20px;
+background: #dda;
+font-family: Verdana, "Times New Roman", serif;
+}
+h1 {
+padding: 0;
+margin: 0;
+line-height: 48px;
+font-size: 18px;
+font-weight: bold;
+font-family: Verdana, "Times New Roman", serif;
+letter-spacing: 0.12em;
+}
+
+#wrapper {
+margin: 0 auto;
+padding: 8px 24px;
+}
+#td-board {
+display: none;
+}
+#td-board canvas#td-canvas {
+position: relative;
+background: #fff;
+border: solid 2px #996;
+}
+#td-loading {
+font-size: 18px;
+line-height: 48px;
+padding: 60px 0 120px 0;
+font-style: italic;
+}
+#note {
+font-style: italic;
+font-size: 14px;
+}
+#logs {
+margin: 60px 0 16px 0;
+background: #eeb;
+padding: 8px;
+}
+#logs h2 {
+font-size: 14px;
+}
+#logs span.date {
+font-style: italic;
+font-size: 14px;
+padding-right: 1em;
+}
+#logs ul {
+padding: 0 0 0 2em;
+margin: 0;
+list-style: none;
+}
+#logs ul li {
+padding: 4px 0;
+}
+#about {
+}

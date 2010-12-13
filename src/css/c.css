@@ -45,26 +45,6 @@ font-style: italic;
 font-style: italic;
 font-size: 14px;
 }
-#logs {
-margin: 60px 0 16px 0;
-background: #eeb;
-padding: 8px;
-}
-#logs h2 {
-font-size: 14px;
-}
-#logs span.date {
-font-style: italic;
-font-size: 14px;
-padding-right: 1em;
-}
-#logs ul {
-padding: 0 0 0 2em;
-margin: 0;
-list-style: none;
-}
-#logs ul li {
-padding: 4px 0;
-}
 #about {
+margin-top: 60px;
 }

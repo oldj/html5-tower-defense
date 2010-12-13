@@ -11,7 +11,7 @@ Source: https://github.com/oldj/html5-tower-defense
 
 运行：
 
-进入 src 目录，用浏览器（如IE9）打开 td.html 即可运行本游戏。
+进入 build 目录，用浏览器（如IE9）打开 td.html 即可运行本游戏。
 
 --------------------------------------------------
 
@@ -21,6 +21,17 @@ Source: https://github.com/oldj/html5-tower-defense
 2、这一个版本没有用到图片，游戏中的所有物品都是使用 HTML5 画出来的。
 3、这一个版本部分地方为 IE9 做了专门的优化，可正常运行在 IE9 下。
 
+--------------------------------------------------
+
+目录：
+
+/build          压缩后的可发布的文件
+/screenshorts   屏幕截图
+/src            源码
+    /css        样式表
+    /js         JavaScripts 源文件
+/tools          小工具、脚本
+/readme.txt     本文件
 
 --------------------------------------------------
 

@@ -29,6 +29,7 @@ padding: 8px 24px;
 }
 #td-board {
 display: none;
+font-size: 16px;
 }
 #td-board canvas#td-canvas {
 position: relative;

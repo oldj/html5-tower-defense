@@ -134,6 +134,9 @@ var grid_obj = {
 			ctx.fill();
 		}
 
+		/**
+		 * 画入口及出口
+		 */
 		if (this.is_entrance || this.is_exit) {
 			ctx.lineWidth = 1;
 			ctx.fillStyle = "#ccc";
@@ -158,6 +161,9 @@ var grid_obj = {
 		ctx.closePath();
 		ctx.stroke();
 	},
+	/**
+	 * 鼠标进入当前格子事件
+	 */
 	onEnter: function () {
 		if (this.map.is_main_map && TD.mode == "build") {
 			if (this.build_flag == 1) {
@@ -184,15 +190,16 @@ var grid_obj = {
 		}
 	},
 	/**
-	 * 鼠标移出当前格子
+	 * 鼠标移出当前格子事件
 	 */
 	onOut: function () {
+		// 如果当前气球提示指向本格子，将其隐藏
 		if (this.scene.panel.balloontip.el == this) {
 			this.scene.panel.balloontip.hide();
 		}
 	},
 	/**
-	 * 鼠标点击了当前格子
+	 * 鼠标点击了当前格子事件
 	 */
 	onClick: function () {
 		if (this.scene.state != 1) return;
@@ -200,10 +207,11 @@ var grid_obj = {
 		if (TD.mode == "build" && this.map.is_main_map && !this.building) {
 			// 如果处于建设模式下，并且点击在主地图的空格子上，则尝试建设指定建筑
 			if (this.checkBlock()) {
-				// 起点与终点之间被阻塞
+				// 起点与终点之间被阻塞，不能修建
 				var msg = TD._t("blocked");
 				this.scene.panel.balloontip.msg(msg, this);
 			} else {
+				// 购买建筑
 				this.buyBuilding(this.map.pre_building.type);
 			}
 		} else if (!this.building && this.map.selected_building) {
@@ -215,7 +223,7 @@ var grid_obj = {
 };
 
 /**
- * @param cfg <object> 配置对象
+ * @param cfg {object} 配置对象
  * 		至少需要包含以下项：
  * 		{
  * 			mx: 在 map 格子中的横向坐标,
@@ -234,6 +242,3 @@ TD.Grid = function (id, cfg) {
 }
 
 }); // _TD.a.push end
-
-
-

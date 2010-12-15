@@ -94,7 +94,7 @@ _TD.a.push(function (TD) {
 		step: function () {
 			if (!this.current_type) return; // 没有事件被触发
 
-			var k, a, el, et, f, en, i, j,
+			var k, a, el, et, f, en, i, j, len,
 				ontypes_len = this.ontypes.length,
 				is_evt_on,
 //				reg_length = 0,
@@ -118,20 +118,20 @@ _TD.a.push(function (TD) {
 
 				is_evt_on = this.isOn(el); // 事件是否发生在元素上
 
-				// enter / out / hover 事件
 				if (this.current_type != "click") {
+					// enter / out / hover 事件
 
-					// 普通的 hover
 					if (et == "hover" && el.is_hover && is_evt_on) {
+						// 普通的 hover
 						f();
 						this.current_type = "hover";
-					// enter 事件
 					} else if (et == "enter" && !el.is_hover && is_evt_on) {
+						// enter 事件
 						el.is_hover = true;
 						f();
 						this.current_type = "enter";
-					// out 事件
 					} else if (et == "out" && el.is_hover && !is_evt_on) {
+						// out 事件
 						el.is_hover = false;
 						f();
 						this.current_type = "out";
@@ -140,13 +140,15 @@ _TD.a.push(function (TD) {
 //					continue;
 					}
 
-				// click 事件
 				} else {
+					// click 事件
 					if (is_evt_on && et == "click") f();
 				}
 			}
 
-			for (i = 0; i < to_del_el.length; i ++) {
+			// 删除指定元素列表的事件
+			// TODO 可以改成使用 TD.lang.each
+			for (i = 0, len = to_del_el.length; i < len; i ++) {
 				el = to_del_el[i];
 				for (j = 0; j < ontypes_len; j ++) {
 					this.removeEventListener(el, this.ontypes[i]);
@@ -155,12 +157,26 @@ _TD.a.push(function (TD) {
 //		TD.log(reg_length);
 			this.current_type = "";
 		},
+
+		/**
+		 * 鼠标在元素上
+		 * @param ex {Number}
+		 * @param ey {Number}
+		 */
 		hover: function (ex, ey) {
-			if (this.current_type == "click") return; // 还有 click 事件未处理
+			// 如果还有 click 事件未处理则退出，点击事件具有更高的优先级
+			if (this.current_type == "click") return;
+
 			this.current_type = "hover";
 			this.ex = ex;
 			this.ey = ey;
 		},
+
+		/**
+		 * 点击事件
+		 * @param ex {Number}
+		 * @param ey {Number}
+		 */
 		click: function (ex, ey) {
 			this.current_type = "click";
 			this.ex = ex;

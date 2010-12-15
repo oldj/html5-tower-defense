@@ -142,7 +142,7 @@ _TD.a.push(function (TD) {
 			this.render_level = render_level || this.render_level;
 
 			if (pre_add_list) {
-				TD.each(pre_add_list, function (obj) {
+				TD.lang.each(pre_add_list, function (obj) {
 					scene.addElement(obj, step_level, render_level);
 				});
 			}

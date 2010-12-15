@@ -1,14 +1,14 @@
 /**
-*
-* Author:
-*	oldj <oldj.wu@gmail.com>
-*	http://oldj.net/
-*
-* File: td-plot-buildings.js
-*
-* Create Date: 2010-11-12 14:16:47
-*
-*/
+ *
+ * Author:
+ *	oldj <oldj.wu@gmail.com>
+ *	http://oldj.net/
+ *
+ * File: td-plot-buildings.js
+ *
+ * Create Date: 2010-11-12 14:16:47
+ *
+ */
 
 // _TD.a.push begin
 _TD.a.push(function (TD) {
@@ -182,7 +182,7 @@ _TD.a.push(function (TD) {
 
 		(renderFunctions[building.type] || renderFunctions["wall"])(
 			building, ctx, map, gs, gs2
-		);
+			);
 	}
 
 }); // _TD.a.push end

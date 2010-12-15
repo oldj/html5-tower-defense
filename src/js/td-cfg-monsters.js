@@ -21,6 +21,7 @@ _TD.a.push(function (TD) {
 		if (!this.is_valid || !this.grid) return;
 		var ctx = TD.ctx;
 
+		// 画一个圆代表怪物
 		ctx.strokeStyle = "#000";
 		ctx.lineWidth = 1;
 		ctx.fillStyle = this.color;
@@ -30,10 +31,10 @@ _TD.a.push(function (TD) {
 		ctx.fill();
 		ctx.stroke();
 
-		// plot life
+		// 画怪物的生命值
 		if (TD.show_monster_life) {
 			var s = Math.floor(TD.grid_size / 4),
-					l = s * 2 - 2;
+				l = s * 2 - 2;
 			ctx.fillStyle = "#000";
 			ctx.beginPath();
 			ctx.fillRect(this.cx - s, this.cy - this.r - 6, s * 2, 4);
@@ -45,6 +46,11 @@ _TD.a.push(function (TD) {
 		}
 	}
 
+	/**
+	 * 取得怪物的默认属性
+	 * @param monster_idx {Number} 怪物的类型
+	 * @return attributes {Object}
+	 */
 	TD.getDefaultMonsterAttributes = function (monster_idx) {
 
 		var monster_attributes = [
@@ -132,11 +138,11 @@ _TD.a.push(function (TD) {
 		];
 
 		if (isNaN(monster_idx)) {
-			return monster_attributes.length;
+			monster_idx = 0;
 		}
 
 		var attr = monster_attributes[monster_idx] || monster_attributes[0],
-				attr2 = {};
+			attr2 = {};
 
 		TD.lang.mix(attr2, attr);
 		if (!attr2.render) {

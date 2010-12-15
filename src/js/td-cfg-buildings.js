@@ -1,16 +1,16 @@
 /**
  *
-*
-* Author:
-*	oldj <oldj.wu@gmail.com>
-*	http://oldj.net/
-*
-* File: td-cfg-building.js
-*
-* Create Date: 2010-11-13 08:34:24
-*
+ *
+ * Author:
+ *	oldj <oldj.wu@gmail.com>
+ *	http://oldj.net/
+ *
+ * File: td-cfg-building.js
+ *
+ * Create Date: 2010-11-13 08:34:24
+ *
  * 本文件定义了建筑的参数、属性
-*/
+ */
 
 // _TD.a.push begin
 _TD.a.push(function (TD) {

@@ -138,8 +138,9 @@ _TD.a.push(function (TD) {
 			}
 		];
 
-		if (isNaN(monster_idx)) {
-			monster_idx = 0;
+		if (typeof monster_idx == "undefined") {
+			// 如果只传了一个参数，则只返回共定义了多少种怪物（供 td.js 中使用）
+			return monster_attributes.length;
 		}
 
 		var attr = monster_attributes[monster_idx] || monster_attributes[0],

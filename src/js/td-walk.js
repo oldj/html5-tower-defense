@@ -113,7 +113,9 @@ _TD.a.push(function (TD) {
 					nbs, i, l, v, min_v = -1,
 					closest_nbs;
 
-			while ((x != this.x1 || y != this.y1) && min_v != 0 && this.way.length < max_len) {
+			while ((x != this.x1 || y != this.y1) && min_v != 0 &&
+				this.way.length < max_len) {
+
 				this.way.unshift([x, y]);
 
 				nbs = this.getNeighborsOf(x, y);

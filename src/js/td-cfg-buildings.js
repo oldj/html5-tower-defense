@@ -14,13 +14,24 @@
 // _TD.a.push begin
 _TD.a.push(function (TD) {
 
+	/**
+	 * 默认的升级规则
+	 * @param old_level {Number}
+	 * @param old_value {Number}
+	 * @return new_value {Number}
+	 */
 	TD.default_upgrade_rule = function (old_level, old_value) {
 		return old_value * 1.2;
 	};
 
+	/**
+	 * 取得建筑的默认属性
+	 * @param building_type {String} 建筑类型
+	 */
 	TD.getDefaultBuildingAttributes = function (building_type) {
 
 		var building_attributes = {
+			// 路障
 			"wall": {
 				damage: 0,
 				range: 0,
@@ -30,6 +41,8 @@ _TD.a.push(function (TD) {
 				shield: 500,
 				cost: 5
 			},
+
+			// 炮台
 			"cannon": {
 				damage: 8,
 				range: 4,
@@ -40,6 +53,8 @@ _TD.a.push(function (TD) {
 				shield: 100,
 				cost: 300
 			},
+
+			// 轻机枪
 			"LMG": {
 				damage: 3,
 				range: 6,
@@ -50,6 +65,8 @@ _TD.a.push(function (TD) {
 				shield: 50,
 				cost: 100
 			},
+
+			// 重机枪
 			"HMG": {
 				damage: 10,
 				range: 3,
@@ -60,6 +77,8 @@ _TD.a.push(function (TD) {
 				shield: 200,
 				cost: 800
 			},
+
+			// 激光枪
 			"laser_gun": {
 				damage: 80,
 				range: 9,

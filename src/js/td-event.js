@@ -95,6 +95,7 @@ _TD.a.push(function (TD) {
 			if (!this.current_type) return; // 没有事件被触发
 
 			var k, a, el, et, f, en, i, j, len,
+				_this = this,
 				ontypes_len = this.ontypes.length,
 				is_evt_on,
 //				reg_length = 0,
@@ -147,14 +148,11 @@ _TD.a.push(function (TD) {
 			}
 
 			// 删除指定元素列表的事件
-			// TODO 可以改成使用 TD.lang.each
-			for (i = 0, len = to_del_el.length; i < len; i ++) {
-				el = to_del_el[i];
-				for (j = 0; j < ontypes_len; j ++) {
-					this.removeEventListener(el, this.ontypes[i]);
-				}
-			}
-//		TD.log(reg_length);
+			TD.lang.each(to_del_el, function(obj) {
+				for (j = 0; j < ontypes_len; j ++)
+					_this.removeEventListener(obj, _this.ontypes[j]);
+			});
+//			TD.log(reg_length);
 			this.current_type = "";
 		},
 

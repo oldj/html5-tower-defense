@@ -1,4 +1,5 @@
 .idea
 *.iml
+*.pyc
 build/td-pkg.js
 src/css/c-min.css

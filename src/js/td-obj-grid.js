@@ -55,10 +55,10 @@ _TD.a.push(function (TD) {
 					this.map.grid_x, this.map.grid_y,
 					this.map.entrance.mx, this.map.entrance.my,
 					this.map.exit.mx, this.map.exit.my,
-								   function (x, y) {
-									   return !(x == _this.mx && y == _this.my) && _this.map.checkPassable(x, y);
-								   }
-					);
+					function (x, y) {
+						return !(x == _this.mx && y == _this.my) && _this.map.checkPassable(x, y);
+					}
+				);
 
 			return fw.is_blocked;
 		},

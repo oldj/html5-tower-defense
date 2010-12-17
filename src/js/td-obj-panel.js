@@ -154,7 +154,7 @@ _TD.a.push(function (TD) {
 			ctx.fillStyle = "#666";
 			ctx.font = "normal 12px 'Courier New'";
 			ctx.beginPath();
-			ctx.fillText("version: " + TD.version, TD.stage.width - TD.padding,
+			ctx.fillText("version: " + TD.version + " | oldj.net", TD.stage.width - TD.padding,
 				TD.stage.height - TD.padding * 2);
 			ctx.closePath();
 

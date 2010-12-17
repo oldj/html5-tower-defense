@@ -55,6 +55,8 @@ _TD.a.push(function (TD) {
 			this.toward = 2; // 默认面朝下方
 			this._dx = 0;
 			this._dy = 0;
+
+			this.is_blocked = false; // 前进的道路是否被阻塞了
 		},
 		caculatePos: function () {
 //		if (!this.map) return;
@@ -162,13 +164,32 @@ _TD.a.push(function (TD) {
 			}
 
 			this.next_grid = this.map.getGrid(next_grid[0], next_grid[1]);
-			this.getToward();
+//			this.getToward(); // 在这个版本中暂时没有用
+		},
+
+		/**
+		 * 怪物前进的道路被阻塞（被建筑包围了）
+		 */
+		beBlocked: function () {
+			if (this.is_blocked) return;
+
+			this.is_blocked = true;
+			TD.log("monster be blocked!");
 		},
 
 		step: function () {
 			if (!this.is_valid || this.is_paused || !this.grid) return;
+
 			if (!this.next_grid) {
 				this.getNextGrid();
+
+				/**
+				 * 如果依旧找不着下一步可去的格子，说明当前怪物被阻塞了
+				 */
+				if (!this.next_grid) {
+					this.beBlocked();
+					return;
+				}
 			}
 
 			if (this.cx == this.next_grid.cx && this.cy == this.next_grid.cy) {

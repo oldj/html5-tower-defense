@@ -198,7 +198,7 @@ _TD.a.push(function (TD) {
 
 			// 在进入射程的怪物中寻找新的目标
 			this.target = TD.lang.any(
-				TD.lang.rndSort(this.map.monsters),
+				TD.lang.rndSort(this.map.monsters), // 将怪物随机排序
 				function (obj) {
 					return Math.pow(obj.cx - cx, 2) + Math.pow(obj.cy - cy, 2) <= range2;
 			});

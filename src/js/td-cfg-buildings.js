@@ -83,7 +83,7 @@ _TD.a.push(function (TD) {
 			"laser_gun": {
 				damage: 25,
 				range: 9,
-				max_range: 8,
+				max_range: 10,
 				speed: 20,
 //				bullet_speed: 10, // laser_gun 的 bullet_speed 属性没有用
 				life: 100,

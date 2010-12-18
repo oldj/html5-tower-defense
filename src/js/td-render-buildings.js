@@ -173,18 +173,22 @@ _TD.a.push(function (TD) {
 			ctx.stroke();
 		},
 		"laser_gun": function (b, ctx, map, gs, gs2) {
-			var target_position = b.getTargetPosition();
+//			var target_position = b.getTargetPosition();
 
-			ctx.fillStyle = "#933";
+			ctx.fillStyle = "#f00";
 			ctx.strokeStyle = "#000";
 			ctx.beginPath();
 			ctx.lineWidth = 1;
-			ctx.arc(b.cx, b.cy, gs2 - 5, 0, Math.PI * 2, true);
+//			ctx.arc(b.cx, b.cy, gs2 - 5, 0, Math.PI * 2, true);
+			ctx.moveTo(b.cx, b.cy - 10);
+			ctx.lineTo(b.cx - 8.66, b.cy + 5);
+			ctx.lineTo(b.cx + 8.66, b.cy + 5);
+			ctx.lineTo(b.cx, b.cy - 10);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
 
-			ctx.fillStyle = "#060";
+			ctx.fillStyle = "#60f";
 			ctx.beginPath();
 			ctx.arc(b.cx, b.cy, 7, 0, Math.PI * 2, true);
 			ctx.closePath();

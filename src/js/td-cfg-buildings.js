@@ -88,7 +88,7 @@ _TD.a.push(function (TD) {
 //				bullet_speed: 10, // laser_gun 的 bullet_speed 属性没有用
 				life: 100,
 				shield: 100,
-				cost: 2
+				cost: 2000
 			}
 		};
 

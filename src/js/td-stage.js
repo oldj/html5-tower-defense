@@ -269,7 +269,7 @@ _TD.a.push(function (TD) {
 			this.act.current_scene = null;
 		},
 		/**
-		 * TODO: 需要再仔细检查，以确保有效清空
+		 * 清空场景
 		 */
 		clear: function () {
 			// 清空本 scene 中引用的所有对象以回收内存

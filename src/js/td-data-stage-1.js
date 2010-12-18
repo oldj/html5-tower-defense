@@ -278,7 +278,7 @@ _TD.a.push(function (TD) {
 					//map.addMonsters(100, 7);
 					//map.addMonsters2([[10, 7], [5, 0], [5, 5]]);
 					//
-					var wave_data = //this.config.waves[wave] ||
+					var wave_data = this.config.waves[wave] ||
 						// 自动生成怪物
 						TD.makeMonsters(Math.min(
 							Math.floor(Math.pow(wave, 1.1)),

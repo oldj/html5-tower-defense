@@ -122,7 +122,7 @@ _TD.a.push(function (TD) {
 				desc: "速度、生命都较高的怪物",
 				speed: 15,
 				max_speed: 30,
-				life: 250,
+				life: 100,
 				damage: 5, // 到达终点后会带来多少点伤害（1 ~ 15）
 				shield: 3
 			},
@@ -132,7 +132,7 @@ _TD.a.push(function (TD) {
 				desc: "速度很快的怪物",
 				speed: 30,
 				max_speed: 40,
-				life: 50,
+				life: 30,
 				damage: 5, // 到达终点后会带来多少点伤害（1 ~ 15）
 				shield: 1
 			}

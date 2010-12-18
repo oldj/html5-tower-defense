@@ -254,9 +254,9 @@ _TD.a.push(function (TD) {
 						// 没有造成伤害
 						if (wave < 5) {
 							TD.difficulty *= 1.05;
-						} else if (TD.difficulty > 30) {
-							TD.difficulty *= 1.05;
 						} else if (TD.difficulty > 20) {
+							TD.difficulty *= 1.05;
+						} else if (TD.difficulty > 10) {
 							TD.difficulty *= 1.1;
 						} else {
 							TD.difficulty *= 1.2;
@@ -278,10 +278,10 @@ _TD.a.push(function (TD) {
 					//map.addMonsters(100, 7);
 					//map.addMonsters2([[10, 7], [5, 0], [5, 5]]);
 					//
-					var wave_data = this.config.waves[wave] ||
+					var wave_data = //this.config.waves[wave] ||
 						// 自动生成怪物
 						TD.makeMonsters(Math.min(
-							Math.floor(Math.pow(wave, 1.2)),
+							Math.floor(Math.pow(wave, 1.1)),
 							this.config.max_monsters_per_wave
 						));
 					map.addMonsters2(wave_data);

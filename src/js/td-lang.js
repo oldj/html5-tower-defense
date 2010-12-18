@@ -121,6 +121,19 @@ _TD.a.push(function (TD) {
 			}
 		},
 
+		/**
+		 * 传入一个数组，将其随机排序并返回
+		 * 返回的是一个新的数组，原数组不变
+		 * @param list {Array}
+		 * @return {Array}
+		 */
+		rndSort: function (list) {
+			var a = list.concat();
+			return a.sort(function (i, j) {
+				return Math.random() - 0.5;
+			});
+		},
+
 		_rndRGB2: function (v) {
 			var s = v.toString(16);
 			return s.length == 2 ? s : ("0" + s);

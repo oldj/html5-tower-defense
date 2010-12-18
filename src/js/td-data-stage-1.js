@@ -130,7 +130,7 @@ _TD.a.push(function (TD) {
 					y: TD.padding,
 					map: {
 						grid_x: 3,
-						grid_y: 2,
+						grid_y: 3,
 						x: 0,
 						y: 110,
 						grids_cfg: [
@@ -147,7 +147,11 @@ _TD.a.push(function (TD) {
 								building: "HMG"
 							},
 							{
-								pos: [2, 1],
+								pos: [0, 1],
+								building: "laser_gun"
+							},
+							{
+								pos: [2, 2],
 								building: "wall"
 							}
 						]

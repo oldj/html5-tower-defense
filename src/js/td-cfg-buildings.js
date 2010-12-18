@@ -81,14 +81,14 @@ _TD.a.push(function (TD) {
 
 			// 激光枪
 			"laser_gun": {
-				damage: 80,
+				damage: 5,
 				range: 9,
 				max_range: 8,
-				speed: 2,
-				bullet_speed: 10,
+				speed: 20,
+				bullet_speed: 10, // laser_gun 的 bullet_speed 属性没有用
 				life: 100,
 				shield: 100,
-				cost: 2000
+				cost: 2
 			}
 		};
 

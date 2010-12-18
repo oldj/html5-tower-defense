@@ -171,6 +171,39 @@ _TD.a.push(function (TD) {
 			ctx.lineTo(b.cx + gs2 + 0.5, b.cy + gs2 + 0.5);
 			ctx.closePath();
 			ctx.stroke();
+		},
+		"laser_gun": function (b, ctx, map, gs, gs2) {
+			var target_position = b.getTargetPosition();
+
+			ctx.fillStyle = "#933";
+			ctx.strokeStyle = "#000";
+			ctx.beginPath();
+			ctx.lineWidth = 1;
+			ctx.arc(b.cx, b.cy, gs2 - 5, 0, Math.PI * 2, true);
+			ctx.closePath();
+			ctx.fill();
+			ctx.stroke();
+
+			ctx.fillStyle = "#060";
+			ctx.beginPath();
+			ctx.arc(b.cx, b.cy, 7, 0, Math.PI * 2, true);
+			ctx.closePath();
+			ctx.fill();
+			ctx.stroke();
+
+			ctx.fillStyle = "#000";
+			ctx.beginPath();
+			ctx.arc(b.cx, b.cy, 3, 0, Math.PI * 2, true);
+			ctx.closePath();
+			ctx.fill();
+
+			ctx.lineWidth = 3;
+			ctx.beginPath();
+			ctx.moveTo(b.cx, b.cy);
+//			b.muzzle = lineTo2(ctx, b.cx, b.cy, target_position[0], target_position[1], gs2);
+			ctx.closePath();
+			ctx.fill();
+			ctx.stroke();
 		}
 	};
 

@@ -146,7 +146,7 @@ _TD.a.push(function (TD) {
 				this.x, this.y + 60);
 			ctx.fillText(TD._t("panel_monster_title") + this.map.monsters.length,
 				this.x, this.y + 80);
-			ctx.fillText(TD._t("wave_info", [this.scene.wave]), this.x, this.y + 180);
+			ctx.fillText(TD._t("wave_info", [this.scene.wave]), this.x, this.y + 210);
 			ctx.closePath();
 
 			// 在右下角画版本信息

@@ -38,7 +38,7 @@ _TD.a.push(function (TD) {
 		"building_intro_cannon": "炮台 射程、杀伤力较为平衡 ($${0})",
 		"building_intro_LMG": "轻机枪 射程较远，杀伤力一般 ($${0})",
 		"building_intro_HMG": "重机枪 快速射击，威力较大，射程一般 ($${0})",
-		"building_intro_laser_gun": "激光炮 伤害较大 ($${0})",
+		"building_intro_laser_gun": "激光炮 伤害较大，命中率 100% ($${0})",
 		"click_to_build": "左键点击建造 ${0} ($${1})",
 		"upgrade": "升级 ${0} 到 ${1} 级，需花费 $${2}。",
 		"sell": "出售 ${0}，可获得 $${1}",

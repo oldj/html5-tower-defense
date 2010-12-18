@@ -219,6 +219,13 @@ _TD.a.push(function (TD) {
 		 */
 		fire: function () {
 			if (!this.target || !this.target.is_valid) return;
+
+			if (this.type == "laser_gun") {
+				// 如果是激光枪，目标立刻被击中
+				this.target.beHit(this, this.damage);
+				return;
+			}
+
 			var muzzle = this.muzzle || [this.cx, this.cy], // 炮口的位置
 				cx = muzzle[0],
 				cy = muzzle[1];
@@ -234,7 +241,9 @@ _TD.a.push(function (TD) {
 		},
 
 		tryToFire: function () {
-			if (!this.is_weapon || !this.target) return;
+			if (!this.is_weapon || !this.target)
+				return;
+
 			this._fire_wait --;
 			if (this._fire_wait > 0) {
 //			return;
@@ -329,7 +338,14 @@ _TD.a.push(function (TD) {
 
 			TD.renderBuilding(this);
 
-			if (this.map.is_main_map && (this.is_selected || (this.is_pre_building) || this.map.show_all_ranges) && this.is_weapon && this.range > 0 && this.grid) {
+			if (
+				this.map.is_main_map &&
+				(
+					this.is_selected || (this.is_pre_building) ||
+					this.map.show_all_ranges
+				) &&
+				this.is_weapon && this.range > 0 && this.grid
+				) {
 				// 画射程
 				ctx.lineWidth = 1;
 				ctx.fillStyle = "rgba(200, 200, 200, 0.15)";
@@ -338,6 +354,23 @@ _TD.a.push(function (TD) {
 				ctx.arc(this.cx, this.cy, this.range_px, 0, Math.PI * 2, true);
 				ctx.closePath();
 				ctx.fill();
+				ctx.stroke();
+			}
+
+			if (this.type == "laser_gun" && this.target && this.target.is_valid) {
+				// 画激光
+				ctx.lineWidth = 3;
+				ctx.strokeStyle = "rgba(50, 50, 200, 0.5)";
+				ctx.beginPath();
+				ctx.moveTo(this.cx, this.cy);
+				ctx.lineTo(this.target.cx, this.target.cy);
+				ctx.closePath();
+				ctx.stroke();
+				ctx.lineWidth = 1;
+				ctx.strokeStyle = "rgba(150, 150, 255, 0.5)";
+				ctx.beginPath();
+				ctx.lineTo(this.cx, this.cy);
+				ctx.closePath();
 				ctx.stroke();
 			}
 		},

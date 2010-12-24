@@ -10,7 +10,7 @@ HTML5 塔防游戏
  运行：
 ----------
 
-进入 build 目录，用浏览器（如IE9）打开 td.html 即可运行本游戏。
+进入 src 或 build 目录，用浏览器（如IE9）打开 td.html 即可运行本游戏。
 或者查看[线上Demo](http://oldj.net/static/html5-tower-defense/td.html)。
 
  说明：

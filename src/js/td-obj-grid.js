@@ -108,9 +108,10 @@ _TD.a.push(function (TD) {
 		 * 移除当前格子的建筑
 		 */
 		removeBuilding: function () {
-			if (!this.building) return;
-			this.building.remove();
-			this.build_flag = 1;
+			if (this.build_flag == 2)
+				this.build_flag = 1;
+			if (this.building)
+				this.building.remove();
 		},
 
 		/**

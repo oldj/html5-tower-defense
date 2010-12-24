@@ -142,7 +142,7 @@ var _TD = {
 					} else if (this.fps > 24.4) {
 						this.step_time ++;
 					}
-					TD.log("FPS: " + this.fps + ", Step Time: " + this.step_time);
+//					TD.log("FPS: " + this.fps + ", Step Time: " + this.step_time);
 				}
 				if (this.iframe % 2400 == 0) TD.gc(); // 每隔一段时间自动回收垃圾
 

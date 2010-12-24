@@ -312,8 +312,8 @@ _TD.a.push(function (TD) {
 			if (!this.is_valid) return;
 
 			TD.money += this.getSellMoney();
-			this.is_valid = false;
 			this.grid.removeBuilding();
+			this.is_valid = false;
 			this.map.selected_building = null;
 			this.map.select_hl.hide();
 			this.map.checkHasWeapon();

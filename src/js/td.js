@@ -17,7 +17,7 @@ var _TD = {
 		delete this.init; // 一旦初始化运行，即删除这个入口引用，防止初始化方法被再次调用
 
 		var i, TD = {
-			version: "0.1.8.0",
+			version: "0.1.8.1",
 			is_debug: !!is_debug,
 			is_paused: true,
 			width: 16, // 横向多少个格子
@@ -132,17 +132,20 @@ var _TD = {
 				this.iframe ++; // 当前总第多少帧
 				if (this.iframe % 50 == 0) {
 					// 计算 fps
-					var t = (new Date()).getTime();
+					var t = (new Date()).getTime(),
+						step_time = this.step_time;
 					this.fps = Math.round(500000 / (t - this.last_iframe_time)) / 10;
 					this.last_iframe_time = t;
 
 					// 动态调整 step_time ，保证 fps 恒定为 24 左右
-					if (this.fps < 23.6 && this.step_time > 1) {
-						this.step_time --;
+					if (this.fps < 23.6 && step_time > 1) {
+						step_time --;
 					} else if (this.fps > 24.4) {
-						this.step_time ++;
+						step_time ++;
 					}
-//					TD.log("FPS: " + this.fps + ", Step Time: " + this.step_time);
+					if (step_time != this.step_time)
+						TD.log("FPS: " + this.fps + ", Step Time: " + step_time);
+					this.step_time = step_time;
 				}
 				if (this.iframe % 2400 == 0) TD.gc(); // 每隔一段时间自动回收垃圾
 

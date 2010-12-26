@@ -94,7 +94,7 @@ _TD.a.push(function (TD) {
 		step: function () {
 			if (!this.current_type) return; // 没有事件被触发
 
-			var k, a, el, et, f, en, i, j, len,
+			var k, a, el, et, f, en, j,
 				_this = this,
 				ontypes_len = this.ontypes.length,
 				is_evt_on,

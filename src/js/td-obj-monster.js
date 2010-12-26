@@ -19,6 +19,7 @@ _TD.a.push(function (TD) {
 	var monster_obj = {
 		_init: function (cfg) {
 			cfg = cfg || {};
+			this.is_monster = true;
 			this.idx = cfg.idx || 1;
 			this.difficulty = cfg.difficulty || 1.0;
 			var attr = TD.getDefaultMonsterAttributes(this.idx);
@@ -60,6 +61,11 @@ _TD.a.push(function (TD) {
 		},
 		caculatePos: function () {
 //		if (!this.map) return;
+			var r = this.r;
+			this.x = this.cx - r;
+			this.y = this.cy - r;
+			this.x2 = this.cx + r;
+			this.y2 = this.cy + r;
 		},
 		beHit: function (building, damage) {
 			if (!this.is_valid) return;
@@ -72,6 +78,12 @@ _TD.a.push(function (TD) {
 			if (this.life < 0) {
 				this.beKilled(building);
 			}
+
+			var balloontip = this.scene.panel.balloontip;
+			if (balloontip.el == this) {
+				balloontip.text = TD._t("monster_info", ["怪物", this.life, this.shield, this.damage, this.speed]);
+			}
+
 		},
 		beKilled: function (building) {
 			if (!this.is_valid) return;
@@ -215,6 +227,28 @@ _TD.a.push(function (TD) {
 					this._dy = 0;
 				}
 			}
+
+			this.caculatePos();
+		},
+
+		onEnter: function () {
+			var msg,
+				balloontip = this.scene.panel.balloontip;
+
+			if (balloontip.el == this) {
+				balloontip.hide();
+				balloontip.el = null;
+			} else {
+				msg = TD._t("monster_info",
+					["怪物", this.life, this.shield, this.damage, this.speed]),
+				balloontip.msg(msg, this);
+			}
+		},
+
+		onOut: function () {
+//			if (this.scene.panel.balloontip.el == this) {
+//				this.scene.panel.balloontip.hide();
+//			}
 		}
 	};
 
@@ -228,8 +262,7 @@ _TD.a.push(function (TD) {
 	 *		 }
 	 */
 	TD.Monster = function (id, cfg) {
-		//cfg.on_events = ["enter", "out", "click"];
-		//monster 暂时不监听事件
+		cfg.on_events = ["enter", "out"];
 		var monster = new TD.Element(id, cfg);
 		TD.lang.mix(monster, monster_obj);
 		monster._init(cfg);

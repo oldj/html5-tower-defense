@@ -192,6 +192,19 @@ _TD.a.push(function (TD) {
 			cfg = cfg || {};
 			this.scene = cfg.scene;
 		},
+		caculatePos: function () {
+			var el = this.el;
+
+			this.x = el.cx + 0.5;
+			this.y = el.cy + 0.5;
+
+			if (this.x + this.width > this.scene.stage.width - TD.padding) {
+				this.x = this.x - this.width;
+			}
+
+			this.px = this.x + 5;
+			this.py = this.y + 4;
+		},
 		msg: function (txt, el) {
 			this.text = txt;
 			var ctx = TD.ctx;
@@ -200,20 +213,24 @@ _TD.a.push(function (TD) {
 				ctx.measureText(txt).width + 10,
 				TD.lang.strLen2(txt) * 6 + 10
 				);
-			this.height = 23;
+			this.height = 24;
+
 			if (el && el.cx && el.cy) {
 				this.el = el;
-				this.x = el.cx + 0.5;
-				this.y = el.cy + 0.5;
-
-				if (this.x + this.width > this.scene.stage.width - TD.padding) {
-					this.x = this.x - this.width;
-				}
-
-				this.px = this.x + 5;
-				this.py = this.y + 4;
+				this.caculatePos();
 
 				this.show();
+			}
+		},
+		step: function () {
+			if (!this.el || !this.el.is_valid) {
+				this.hide();
+				return;
+			}
+
+			if (this.el.is_monster) {
+				// monster 会移动，所以需要重新计算 tip 的位置
+				this.caculatePos();
 			}
 		},
 		render: function () {

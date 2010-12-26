@@ -391,7 +391,7 @@ _TD.a.push(function (TD) {
 		},
 
 		onOut: function () {
-			if (this.scene.panel.balloontip.grid == this.grid) {
+			if (this.scene.panel.balloontip.el == this.grid) {
 				this.scene.panel.balloontip.hide();
 			}
 		},

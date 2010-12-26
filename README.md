@@ -44,6 +44,8 @@ HTML5 塔防游戏
  4. 生命值恢复：javascript:_TD.cheat="life+";void(0);
  5. 生命值降为最低：javascript:_TD.cheat="life-";void(0);
 
+在浏览器地址栏输入上面的“javascript:...;”并回车，即可实现作弊。
+
 注意，以上作弊方法主要是为测试设计，正常游戏过程中请酌情使用，否则可能会降低游戏乐趣。
 
 

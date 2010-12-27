@@ -21,7 +21,6 @@ font-size: 18px;
 font-weight: bold;
 font-family: Verdana, "Times New Roman", serif;
 letter-spacing: 0.12em;
-color: #1A74BA;
 }
 
 #wrapper {
@@ -37,7 +36,7 @@ font-size: 16px;
 #td-board canvas#td-canvas {
 position: relative;
 background: #fff;
-border: solid 2px #1A74BA;
+border: solid 1px #cdf;
 }
 #td-loading {
 font-size: 18px;

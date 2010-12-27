@@ -251,7 +251,7 @@ _TD.a.push(function (TD) {
 
 		render: function () {
 			var ctx = TD.ctx;
-			ctx.strokeStyle = "#999";
+			ctx.strokeStyle = "#99a";
 			ctx.lineWidth = 1;
 			ctx.beginPath();
 			ctx.strokeRect(this.x + 0.5, this.y + 0.5, this.width, this.height);

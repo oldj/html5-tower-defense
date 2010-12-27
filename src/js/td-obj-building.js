@@ -350,8 +350,8 @@ _TD.a.push(function (TD) {
 				) {
 				// 画射程
 				ctx.lineWidth = 1;
-				ctx.fillStyle = "rgba(200, 200, 200, 0.15)";
-				ctx.strokeStyle = "#999";
+				ctx.fillStyle = "rgba(187, 141, 32, 0.15)";
+				ctx.strokeStyle = "#bb8d20";
 				ctx.beginPath();
 				ctx.arc(this.cx, this.cy, this.range_px, 0, Math.PI * 2, true);
 				ctx.closePath();

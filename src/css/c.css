@@ -10,7 +10,7 @@ margin: 0;
 padding: 0;
 font-size: 12px;
 line-height: 20px;
-background: #dda;
+background: #E0F4FC;
 font-family: Verdana, "Times New Roman", serif;
 }
 h1 {
@@ -21,10 +21,13 @@ font-size: 18px;
 font-weight: bold;
 font-family: Verdana, "Times New Roman", serif;
 letter-spacing: 0.12em;
+color: #1A74BA;
 }
 
 #wrapper {
 margin: 0 auto;
+}
+#td-wrapper {
 padding: 8px 24px;
 }
 #td-board {
@@ -34,7 +37,7 @@ font-size: 16px;
 #td-board canvas#td-canvas {
 position: relative;
 background: #fff;
-border: solid 2px #996;
+border: solid 2px #1A74BA;
 }
 #td-loading {
 font-size: 18px;
@@ -44,4 +47,11 @@ font-style: italic;
 }
 #about {
 margin-top: 60px;
+color: #fff;
+background: #1A74BA;
+padding: 8px 24px;
 }
+#about a {
+color: #fff;
+}
+

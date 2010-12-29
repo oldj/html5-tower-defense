@@ -54,7 +54,7 @@ _TD.a.push(function (TD) {
 				shield: 100,
 				cost: 300,
 				_upgrade_rule_damage: function (old_level, old_value) {
-					return old_value * (old_level < 10 ? 1.2 : 1.25);
+					return old_value * (old_level <= 10 ? 1.2 : 1.3);
 				}
 			},
 
@@ -72,7 +72,7 @@ _TD.a.push(function (TD) {
 
 			// 重机枪
 			"HMG": {
-				damage: 40,
+				damage: 30,
 				range: 3,
 				max_range: 5,
 				speed: 3,
@@ -81,14 +81,14 @@ _TD.a.push(function (TD) {
 				shield: 200,
 				cost: 800,
 				_upgrade_rule_damage: function (old_level, old_value) {
-					return old_value * (old_level < 10 ? 1.3 : 1.1);
+					return old_value * 1.3;
 				}
 			},
 
 			// 激光枪
 			"laser_gun": {
 				damage: 25,
-				range: 7,
+				range: 6,
 				max_range: 10,
 				speed: 20,
 //				bullet_speed: 10, // laser_gun 的 bullet_speed 属性没有用

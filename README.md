@@ -30,7 +30,7 @@ HTML5 塔防游戏
         /css        样式表
         /js         JavaScripts 源文件
     /tools          小工具、脚本
-    /readme.txt     本文件
+    /README.md      本文件
 
 
  作弊方法：

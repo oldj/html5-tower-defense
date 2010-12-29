@@ -437,7 +437,7 @@ _TD.a.push(function (TD) {
 			this.target = cfg.target;
 			this.cx = cfg.x;
 			this.cy = cfg.y;
-			this.r = cfg.r || Math.max(Math.sqrt(this.damage), 2);
+			this.r = cfg.r || Math.max(Math.log(this.damage), 2);
 			if (this.r < 1) this.r = 1;
 			if (this.r > 6) this.r = 6;
 

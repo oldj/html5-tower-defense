@@ -52,7 +52,10 @@ _TD.a.push(function (TD) {
 				bullet_speed: 6,
 				life: 100,
 				shield: 100,
-				cost: 300
+				cost: 300,
+				_upgrade_rule_damage: function (old_level, old_value) {
+					return old_value * (old_level < 10 ? 1.2 : 1.25);
+				}
 			},
 
 			// 轻机枪
@@ -78,7 +81,7 @@ _TD.a.push(function (TD) {
 				shield: 200,
 				cost: 800,
 				_upgrade_rule_damage: function (old_level, old_value) {
-					return old_value * 1.3;
+					return old_value * (old_level < 10 ? 1.3 : 1.1);
 				}
 			},
 

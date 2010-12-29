@@ -177,7 +177,9 @@ _TD.a.push(function (TD) {
 		 * 将本建筑彻底删除
 		 */
 		remove: function () {
-			if (this.grid) this.grid.building = null;
+//			TD.log("remove building #" + this.id + ".");
+			if (this.grid && this.grid.building && this.grid.building == this)
+				this.grid.building = null;
 			this.hide();
 			this.del();
 		},

@@ -28,7 +28,7 @@ _TD.a.push(function (TD) {
 			this.is_entrance = this.is_exit = false;
 			this.passable_flag = 1; // 0: 不可通过; 1: 可通过
 			this.build_flag = 1,// 0: 不可修建; 1: 可修建; 2: 已修建
-				this.building = null;
+			this.building = null;
 			this.caculatePos();
 		},
 
@@ -112,6 +112,7 @@ _TD.a.push(function (TD) {
 				this.build_flag = 1;
 			if (this.building)
 				this.building.remove();
+			this.building = null;
 		},
 
 		/**

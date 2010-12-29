@@ -263,7 +263,7 @@ _TD.a.push(function (TD) {
 				this._upgrade_records[k] = this[k];
 			var v = this._upgrade_records[k],
 				mk = "max_" + k,
-				uk = "_update_rule_" + k,
+				uk = "_upgrade_rule_" + k,
 				uf = this[uk] || TD.default_upgrade_rule;
 			if (!v || isNaN(v)) return;
 
@@ -284,8 +284,8 @@ _TD.a.push(function (TD) {
 			var attrs = [
 				// 可升级的变量
 				"damage", "range", "speed", "life", "shield"
-			], i;
-			for (i = 0; i < attrs.length; i ++)
+			], i, l = attrs.length;
+			for (i = 0; i < l; i ++)
 				this._upgrade2(attrs[i]);
 			this.level ++;
 			this.range_px = this.range * TD.grid_size;

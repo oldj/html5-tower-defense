@@ -45,7 +45,7 @@ _TD.a.push(function (TD) {
 
 			// 炮台
 			"cannon": {
-				damage: 8,
+				damage: 10,
 				range: 4,
 				max_range: 8,
 				speed: 2,
@@ -58,7 +58,7 @@ _TD.a.push(function (TD) {
 			// 轻机枪
 			"LMG": {
 				damage: 3,
-				range: 6,
+				range: 5,
 				max_range: 10,
 				speed: 3,
 				bullet_speed: 6,
@@ -69,20 +69,23 @@ _TD.a.push(function (TD) {
 
 			// 重机枪
 			"HMG": {
-				damage: 10,
+				damage: 40,
 				range: 3,
-				max_range: 6,
+				max_range: 5,
 				speed: 3,
 				bullet_speed: 5,
 				life: 100,
 				shield: 200,
-				cost: 800
+				cost: 800,
+				_upgrade_rule_damage: function (old_level, old_value) {
+					return old_value * 1.3;
+				}
 			},
 
 			// 激光枪
 			"laser_gun": {
 				damage: 25,
-				range: 9,
+				range: 7,
 				max_range: 10,
 				speed: 20,
 //				bullet_speed: 10, // laser_gun 的 bullet_speed 属性没有用

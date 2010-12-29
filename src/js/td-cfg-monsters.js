@@ -104,7 +104,7 @@ _TD.a.push(function (TD) {
 				max_speed: 10,
 				life: 50,
 				damage: 7, // 到达终点后会带来多少点伤害（1 ~ 15）
-				shield: 100
+				shield: 50
 			},
 			{
 				// idx: 5

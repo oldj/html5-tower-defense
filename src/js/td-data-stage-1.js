@@ -49,31 +49,48 @@ _TD.a.push(function (TD) {
 		this.map = map;
 		this.wait_new_wave = this.config.wait_new_wave;
 	},
-		_stage_main_step2 = function () {
-			//TD.log(this.current_act.current_scene.wave);
+	_stage_main_step2 = function () {
+		//TD.log(this.current_act.current_scene.wave);
 
-			var scene = this.current_act.current_scene,
-				wave = scene.wave;
-			if ((wave == 0 && !this.map.has_weapon) || scene.state != 1) {
+		var scene = this.current_act.current_scene,
+			wave = scene.wave;
+		if ((wave == 0 && !this.map.has_weapon) || scene.state != 1) {
+			return;
+		}
+
+		if (this.map.monsters.length == 0) {
+			if (wave > 0 && this.wait_new_wave == this.config.wait_new_wave - 1) {
+				// 一波怪物刚刚走完
+				// 奖励生命值
+
+				var wave_reward = 0;
+				if (wave % 10 == 0) {
+					wave_reward = 10;
+				} else if (wave % 5 == 0) {
+					wave_reward = 5;
+				}
+				if (TD.life + wave_reward > 100) {
+					wave_reward = 100 - TD.life;
+				}
+				if (wave_reward > 0) {
+						TD.recover(wave_reward);
+				}
+			}
+
+			if (this.wait_new_wave > 0) {
+				this.wait_new_wave --;
 				return;
 			}
 
-			if (this.map.monsters.length == 0) {
-
-				if (this.wait_new_wave > 0) {
-					this.wait_new_wave --;
-					return;
-				}
-
-				this.wait_new_wave = this.config.wait_new_wave;
-				wave ++;
-				scene.wave = wave;
-				this.newWave({
-					map: this.map,
-					wave: wave
-				});
-			}
-		};
+			this.wait_new_wave = this.config.wait_new_wave;
+			wave ++;
+			scene.wave = wave;
+			this.newWave({
+				map: this.map,
+				wave: wave
+			});
+		}
+	};
 
 	TD.getDefaultStageData = function (k) {
 		var data = {
@@ -159,7 +176,7 @@ _TD.a.push(function (TD) {
 				},
 				config: {
 					endless: true,
-					wait_new_wave: 100, // 经过多少 step 后再开始新的一波
+					wait_new_wave: TD.exp_fps * 3, // 经过多少 step 后再开始新的一波
 					difficulty: 1.0, // 难度系数
 					wave: 0,
 					max_wave: -1,

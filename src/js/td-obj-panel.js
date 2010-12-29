@@ -130,6 +130,19 @@ _TD.a.push(function (TD) {
 				}
 			});
 		},
+		step: function () {
+			if (TD.life_recover) {
+				this._life_recover = this._life_recover2 = TD.life_recover;
+				this._life_recover_wait = this._life_recover_wait2 = TD.exp_fps * 3;
+				TD.life_recover = 0;
+			}
+
+			if (this._life_recover && (TD.iframe % TD.exp_fps_eighth == 0)) {
+				TD.life ++;
+				this._life_recover --;
+			}
+
+		},
 		render: function () {
 			// 画状态文字
 			var ctx = TD.ctx;
@@ -148,6 +161,17 @@ _TD.a.push(function (TD) {
 				this.x, this.y + 80);
 			ctx.fillText(TD._t("wave_info", [this.scene.wave]), this.x, this.y + 210);
 			ctx.closePath();
+
+			if (this._life_recover_wait) {
+				// 画生命恢复提示
+				var a = this._life_recover_wait / this._life_recover_wait2;
+				ctx.fillStyle = "rgba(255, 0, 0, " + a + ")";
+				ctx.font = "bold 12px 'Verdana'";
+				ctx.beginPath();
+				ctx.fillText("+" + this._life_recover2, this.x + 60, this.y + 40);
+				ctx.closePath();
+				this._life_recover_wait --;
+			}
 
 			// 在右下角画版本信息
 			ctx.textAlign = "right";
@@ -394,6 +418,17 @@ _TD.a.push(function (TD) {
 		obj._init(cfg);
 
 		return obj;
+	}
+
+
+	/**
+	 * 恢复 n 点生命值
+	 * @param n
+	 */
+	TD.recover = function (n) {
+//		TD.life += n;
+		TD.life_recover = n;
+		TD.log("life recover: " + n);
 	}
 
 }); // _TD.a.push end

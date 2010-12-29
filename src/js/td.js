@@ -17,13 +17,17 @@ var _TD = {
 		delete this.init; // 一旦初始化运行，即删除这个入口引用，防止初始化方法被再次调用
 
 		var i, TD = {
-			version: "0.1.10", // 版本命名规范参考：http://semver.org/
+			version: "0.1.11", // 版本命名规范参考：http://semver.org/
 			is_debug: !!is_debug,
 			is_paused: true,
 			width: 16, // 横向多少个格子
 			height: 16, // 纵向多少个格子
 			show_monster_life: true, // 是否显示怪物的生命值
 			fps: 0,
+			exp_fps: 24, // 期望的 fps
+			exp_fps_half: 12,
+			exp_fps_quarter: 6,
+			exp_fps_eighth: 4,
 			stage_data: {},
 			defaultSettings: function () {
 				return {
@@ -57,6 +61,8 @@ var _TD = {
 				clearTimeout(this._st);
 				TD.log("Start!");
 				var _this = this;
+				this._exp_fps_0 = this.exp_fps - 0.4; // 下限
+				this._exp_fps_1 = this.exp_fps + 0.4; // 上限
 
 				this.mode = "normal"; // mode 分为 normail（普通模式）及 build（建造模式）两种
 				this.eventManager.clear(); // 清除事件管理器中监听的事件
@@ -138,9 +144,9 @@ var _TD = {
 					this.last_iframe_time = t;
 
 					// 动态调整 step_time ，保证 fps 恒定为 24 左右
-					if (this.fps < 23.6 && step_time > 1) {
+					if (this.fps < this._exp_fps_0 && step_time > 1) {
 						step_time --;
-					} else if (this.fps > 24.4) {
+					} else if (this.fps > this._exp_fps_1) {
 						step_time ++;
 					}
 					if (step_time != this.step_time)

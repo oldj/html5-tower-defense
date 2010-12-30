@@ -52,7 +52,7 @@ _TD.a.push(function (TD) {
 		"button_continue_text": "继续",
 		"button_pause_desc_0": "游戏暂停",
 		"button_pause_desc_1": "游戏继续",
-		"blocked": "不能在这儿修建道路，起点与终点之间至少要有一条路可到达！",
+		"blocked": "不能在这儿修建建筑，起点与终点之间至少要有一条路可到达！",
 		"_": "ERROR"
 	};
 

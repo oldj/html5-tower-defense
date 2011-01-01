@@ -37,7 +37,7 @@ _TD.a.push(function (TD) {
 			this.shield = Math.floor(attr.shield + this.difficulty / 2);
 			if (this.shield < 0) this.shield = 0;
 
-			this.damage = Math.floor((attr.damage || 1) * (0.5 + Math.random()));
+			this.damage = Math.floor((attr.damage || 1) * (Math.random() * 0.5 + 0.75));
 			if (this.damage < 1) this.damage = 1;
 
 			this.money = attr.money || Math.floor(
@@ -88,7 +88,7 @@ _TD.a.push(function (TD) {
 
 			var balloontip = this.scene.panel.balloontip;
 			if (balloontip.el == this) {
-				balloontip.text = TD._t("monster_info", ["怪物", this.life, this.shield, this.damage, this.speed]);
+				balloontip.text = TD._t("monster_info", [this.life, this.shield, this.damage, this.speed]);
 			}
 
 		},
@@ -252,7 +252,7 @@ _TD.a.push(function (TD) {
 				balloontip.el = null;
 			} else {
 				msg = TD._t("monster_info",
-					["怪物", this.life, this.shield, this.damage, this.speed]),
+					[this.life, this.shield, this.damage, this.speed]),
 				balloontip.msg(msg, this);
 			}
 		},

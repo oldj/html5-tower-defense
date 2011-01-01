@@ -43,7 +43,7 @@ _TD.a.push(function (TD) {
 		"upgrade": "升级 ${0} 到 ${1} 级，需花费 $${2}。",
 		"sell": "出售 ${0}，可获得 $${1}",
 		"upgrade_success": "升级成功，${0} 已升级到 ${1} 级！下次升级需要 $${2}。",
-		"monster_info": "${0}: 生命 ${1}，防御 ${2}，速度 ${3}，伤害 ${4}",
+		"monster_info": "怪物: 生命 ${0}，防御 ${1}，速度 ${2}，伤害 ${3}",
 		"button_upgrade_text": "升级",
 		"button_sell_text": "出售",
 		"button_start_text": "开始",

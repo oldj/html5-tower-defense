@@ -287,6 +287,7 @@ _TD.a.push(function (TD) {
 						if (wave >= 10)
 							TD.difficulty *= 1.05;
 					}
+					if (TD.difficulty < 1) TD.difficulty = 1;
 
 					TD.log("wave " + wave + ", last wave damage = " + wave_damage + ", difficulty = " + TD.difficulty);
 

@@ -104,7 +104,7 @@ _TD.a.push(function (TD) {
 				max_speed: 10,
 				life: 50,
 				damage: 7, // 到达终点后会带来多少点伤害（1 ~ 15）
-				shield: 50
+				shield: 25
 			},
 			{
 				// idx: 5
@@ -135,6 +135,16 @@ _TD.a.push(function (TD) {
 				life: 30,
 				damage: 5, // 到达终点后会带来多少点伤害（1 ~ 15）
 				shield: 1
+			},
+			{
+				// idx: 8
+				name: "monster shield-life",
+				desc: "防御很强、生命值很高的怪物",
+				speed: 2,
+				max_speed: 10,
+				life: 500,
+				damage: 7, // 到达终点后会带来多少点伤害（1 ~ 15）
+				shield: 20
 			}
 		];
 

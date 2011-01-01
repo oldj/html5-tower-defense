@@ -271,14 +271,12 @@ _TD.a.push(function (TD) {
 						// 没有造成伤害
 						if (wave < 5) {
 							TD.difficulty *= 1.05;
-						} else if (TD.difficulty > 20) {
-							TD.difficulty *= 1.05;
-						} else if (TD.difficulty > 10) {
-							TD.difficulty *= 1.1;
 						} else {
 							TD.difficulty *= 1.2;
 						}
 					} else if (TD.wave_damage >= 50) {
+						TD.difficulty *= 0.6;
+					} else if (TD.wave_damage >= 30) {
 						TD.difficulty *= 0.7;
 					} else if (TD.wave_damage >= 20) {
 						TD.difficulty *= 0.8;

@@ -17,7 +17,7 @@ var _TD = {
 		delete this.init; // 一旦初始化运行，即删除这个入口引用，防止初始化方法被再次调用
 
 		var i, TD = {
-			version: "0.1.12", // 版本命名规范参考：http://semver.org/
+			version: "0.1.13", // 版本命名规范参考：http://semver.org/
 			is_debug: !!is_debug,
 			is_paused: true,
 			width: 16, // 横向多少个格子
@@ -37,6 +37,7 @@ var _TD = {
 					global_speed: 0.1 // 全局速度系数
 				};
 			},
+
 			/**
 			 * 初始化
 			 * @param ob_board
@@ -54,6 +55,7 @@ var _TD = {
 
 				this.start();
 			},
+
 			/**
 			 * 开始游戏，或重新开始游戏
 			 */
@@ -87,6 +89,7 @@ var _TD = {
 
 				return this;
 			},
+
 			/**
 			 * 作弊方法
 			 * @param cheat_code
@@ -122,6 +125,7 @@ var _TD = {
 						break;
 				}
 			},
+
 			/**
 			 * 主循环方法
 			 */
@@ -149,8 +153,8 @@ var _TD = {
 					} else if (this.fps > this._exp_fps_1) {
 						step_time ++;
 					}
-					if (step_time != this.step_time)
-						TD.log("FPS: " + this.fps + ", Step Time: " + step_time);
+//					if (step_time != this.step_time)
+//						TD.log("FPS: " + this.fps + ", Step Time: " + step_time);
 					this.step_time = step_time;
 				}
 				if (this.iframe % 2400 == 0) TD.gc(); // 每隔一段时间自动回收垃圾
@@ -163,6 +167,7 @@ var _TD = {
 					_this.step();
 				}, this.step_time);
 			},
+
 			/**
 			 * 取得事件相对于 canvas 左上角的坐标
 			 * @param e
@@ -174,6 +179,7 @@ var _TD = {
 
 				return [x, y];
 			},
+
 			/**
 			 * 鼠标移到指定位置事件
 			 * @param x
@@ -182,6 +188,7 @@ var _TD = {
 			hover: function (x, y) {
 				this.eventManager.hover(x, y);
 			},
+
 			/**
 			 * 点击事件
 			 * @param x
@@ -190,6 +197,7 @@ var _TD = {
 			click: function (x, y) {
 				this.eventManager.click(x, y);
 			},
+
 			/**
 			 * 是否将 canvas 中的鼠标指针变为手的形状
 			 * @param v {Boolean}
@@ -197,6 +205,7 @@ var _TD = {
 			mouseHand: function (v) {
 				this.canvas.style.cursor = v ? "pointer" : "default";
 			},
+
 			/**
 			 * 显示调试信息，只在 is_debug 为 true 的情况下有效
 			 * @param txt
@@ -204,6 +213,7 @@ var _TD = {
 			log: function (txt) {
 				this.is_debug && window.console && console.log && console.log(txt);
 			},
+
 			/**
 			 * 回收内存
 			 * 注意：CollectGarbage 只在 IE 下有效

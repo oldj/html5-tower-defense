@@ -30,10 +30,11 @@ _TD.a.push(function (TD) {
 			if (this.speed > cfg.max_speed) this.speed = cfg.max_speed;
 
 			this.life = this.life0 = Math.floor(
-				attr.life * this.difficulty * (Math.random() + 0.5));
+				attr.life * this.difficulty * (Math.random() + 0.5)
+			);
 			if (this.life < 1) this.life = this.life0 = 1;
 
-			this.shield = Math.floor(attr.shield + Math.sqrt(this.difficulty) - 1);
+			this.shield = Math.floor(attr.shield + this.difficulty / 2);
 			if (this.shield < 0) this.shield = 0;
 
 			this.damage = Math.floor((attr.damage || 1) * (0.5 + Math.random()));
@@ -67,15 +68,21 @@ _TD.a.push(function (TD) {
 			this.x2 = this.cx + r;
 			this.y2 = this.cy + r;
 		},
+
+		/**
+		 * 怪物被击中
+		 * @param building {Element} 对应的建筑（武器）
+		 * @param damage {Number} 本次攻击的原始伤害值
+		 */
 		beHit: function (building, damage) {
 			if (!this.is_valid) return;
+			var min_damage = Math.ceil(damage * 0.1);
 			damage -= this.shield;
-			if (damage <= 0) damage = 1;
+			if (damage <= min_damage) damage = min_damage;
+
 			this.life -= damage;
-			TD.score += Math.min(
-				Math.floor(Math.sqrt(damage)), 1
-				);
-			if (this.life < 0) {
+			TD.score += Math.floor(Math.sqrt(damage));
+			if (this.life <= 0) {
 				this.beKilled(building);
 			}
 
@@ -85,6 +92,11 @@ _TD.a.push(function (TD) {
 			}
 
 		},
+
+		/**
+		 * 怪物被杀死
+		 * @param building {Element} 对应的建筑（武器）
+		 */
 		beKilled: function (building) {
 			if (!this.is_valid) return;
 			this.life = 0;

@@ -45,7 +45,7 @@ _TD.a.push(function (TD) {
 
 			// 炮台
 			"cannon": {
-				damage: 10,
+				damage: 12,
 				range: 4,
 				max_range: 8,
 				speed: 2,
@@ -60,7 +60,7 @@ _TD.a.push(function (TD) {
 
 			// 轻机枪
 			"LMG": {
-				damage: 3,
+				damage: 5,
 				range: 5,
 				max_range: 10,
 				speed: 3,

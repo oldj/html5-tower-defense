@@ -32,7 +32,7 @@ _TD.a.push(function (TD) {
 			c2 = Math.pow(b - y0, 2) + x0 * x0 - Math.pow(len, 2);
 			p = Math.pow(b2, 2) - 4 * a2 * c2;
 			if (p < 0) {
-				//TD.log("ERROR: [a, b, len] = [" + ([a, b, len]).join(", ") + "]");
+				TD.log("ERROR: [a, b, len] = [" + ([a, b, len]).join(", ") + "]");
 				return [0, 0];
 			}
 			p = Math.sqrt(p);

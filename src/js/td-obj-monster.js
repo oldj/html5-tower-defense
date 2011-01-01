@@ -108,6 +108,8 @@ _TD.a.push(function (TD) {
 
 			TD.money += this.money;
 			building.killed ++;
+
+			TD.MonsterExplode(this.id + "-explode", {monster: this});
 		},
 		arrive: function () {
 			this.grid = this.next_grid;
@@ -307,6 +309,68 @@ _TD.a.push(function (TD) {
 		monster._init(cfg);
 
 		return monster;
+	};
+
+
+	/**
+	 * 怪物死亡时的爆炸效果对象
+	 */
+	var monster_explode_obj = {
+		_init: function (cfg) {
+			cfg = cfg || {monster: null};
+			if (!cfg.monster) return;
+
+			var rgb = TD.lang.rgb2Arr(cfg.monster.color);
+			this.cx = cfg.monster.cx;
+			this.cy = cfg.monster.cy;
+			this.r = cfg.monster.r;
+			this.step_level = cfg.monster.step_level;
+			this.render_level = cfg.monster.render_level;
+
+			this.rgb_r = rgb[0];
+			this.rgb_g = rgb[1];
+			this.rgb_b = rgb[2];
+			this.rgb_a = 1;
+
+			this.wait = this.wait0 = TD.exp_fps_half;
+
+			cfg.monster.grid.scene.addElement(this);
+		},
+		step: function () {
+			if (!this.is_valid) return;
+
+			this.wait --;
+			this.r ++;
+
+			this.is_valid = this.wait > 0;
+			this.rgb_a = this.wait / this.wait0;
+		},
+		render: function () {
+			var ctx = TD.ctx;
+
+			ctx.fillStyle = "rgba(" + this.rgb_r + "," + this.rgb_g + ","
+				+ this.rgb_b + "," + this.rgb_a + ")";
+			ctx.beginPath();
+			ctx.arc(this.cx, this.cy, this.r, 0, Math.PI * 2, true);
+			ctx.closePath();
+			ctx.fill();
+		}
+	};
+
+	/**
+	 * @param cfg {Object} 配置对象
+	 *		 至少需要包含以下项：
+	 *		 {
+	 * 			 monster: 怪物对象
+	 *		 }
+	 */
+	TD.MonsterExplode = function (id, cfg) {
+//		cfg.on_events = ["enter", "out"];
+		var monster_explode = new TD.Element(id, cfg);
+		TD.lang.mix(monster_explode, monster_explode_obj);
+		monster_explode._init(cfg);
+
+		return monster_explode;
 	}
 
 }); // _TD.a.push end

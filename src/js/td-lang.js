@@ -148,6 +148,20 @@ _TD.a.push(function (TD) {
 
 			return "#" + this._rndRGB2(r) + this._rndRGB2(g) + this._rndRGB2(b);
 		},
+		/**
+		 * 将一个 rgb 色彩字符串转化为一个数组
+		 * eg: '#ffffff' => [255, 255, 255]
+		 * @param rgb_str {String} rgb色彩字符串，类似于“#f8c693”
+		 */
+		rgb2Arr: function (rgb_str) {
+			if (rgb_str.length != 7) return [0, 0, 0];
+
+			var r = rgb_str.substr(1, 2),
+				g = rgb_str.substr(3, 2),
+				b = rgb_str.substr(3, 2);
+
+			return [parseInt(r, 16), parseInt(g, 16), parseInt(b, 16)];
+		},
 
 		/**
 		 * 生成一个长度为 n 的随机字符串

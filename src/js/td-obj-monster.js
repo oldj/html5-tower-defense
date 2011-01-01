@@ -25,23 +25,27 @@ _TD.a.push(function (TD) {
 			var attr = TD.getDefaultMonsterAttributes(this.idx);
 
 			this.speed = Math.floor(
-				(attr.speed + this.difficulty - 1) * (Math.random() * 0.5 + 0.75));
+				(attr.speed + this.difficulty / 2) * (Math.random() * 0.5 + 0.75)
+			);
 			if (this.speed < 1) this.speed = 1;
 			if (this.speed > cfg.max_speed) this.speed = cfg.max_speed;
 
 			this.life = this.life0 = Math.floor(
-				attr.life * this.difficulty * (Math.random() + 0.5)
+				attr.life * (this.difficulty + 1) * (Math.random() + 0.5) * 0.5
 			);
 			if (this.life < 1) this.life = this.life0 = 1;
 
 			this.shield = Math.floor(attr.shield + this.difficulty / 2);
 			if (this.shield < 0) this.shield = 0;
 
-			this.damage = Math.floor((attr.damage || 1) * (Math.random() * 0.5 + 0.75));
+			this.damage = Math.floor(
+				(attr.damage || 1) * (Math.random() * 0.5 + 0.75)
+			);
 			if (this.damage < 1) this.damage = 1;
 
 			this.money = attr.money || Math.floor(
-				Math.sqrt((this.speed + this.life) * (this.shield + 1) * this.damage));
+				Math.sqrt((this.speed + this.life) * (this.shield + 1) * this.damage)
+			);
 			if (this.money < 1) this.money = 1;
 
 			this.color = attr.color || TD.lang.rndRGB();

@@ -73,7 +73,7 @@ _TD.a.push(function (TD) {
 				speed: 6,
 				max_speed: 20,
 				life: 50,
-				damage: 3, // 到达终点后会带来多少点伤害（1 ~ 10）
+				damage: 2, // 到达终点后会带来多少点伤害（1 ~ 10）
 				shield: 1
 			},
 			{
@@ -83,7 +83,7 @@ _TD.a.push(function (TD) {
 				speed: 12,
 				max_speed: 30,
 				life: 50,
-				damage: 4, // 到达终点后会带来多少点伤害（1 ~ 10）
+				damage: 3, // 到达终点后会带来多少点伤害（1 ~ 10）
 				shield: 1
 			},
 			{
@@ -93,7 +93,7 @@ _TD.a.push(function (TD) {
 				speed: 5,
 				max_speed: 10,
 				life: 500,
-				damage: 5, // 到达终点后会带来多少点伤害（1 ~ 10）
+				damage: 3, // 到达终点后会带来多少点伤害（1 ~ 10）
 				shield: 1
 			},
 			{
@@ -103,8 +103,8 @@ _TD.a.push(function (TD) {
 				speed: 5,
 				max_speed: 10,
 				life: 50,
-				damage: 5, // 到达终点后会带来多少点伤害（1 ~ 10）
-				shield: 25
+				damage: 3, // 到达终点后会带来多少点伤害（1 ~ 10）
+				shield: 20
 			},
 			{
 				// idx: 5
@@ -123,7 +123,7 @@ _TD.a.push(function (TD) {
 				speed: 15,
 				max_speed: 30,
 				life: 100,
-				damage: 5, // 到达终点后会带来多少点伤害（1 ~ 10）
+				damage: 3, // 到达终点后会带来多少点伤害（1 ~ 10）
 				shield: 3
 			},
 			{
@@ -133,18 +133,18 @@ _TD.a.push(function (TD) {
 				speed: 30,
 				max_speed: 40,
 				life: 30,
-				damage: 5, // 到达终点后会带来多少点伤害（1 ~ 10）
+				damage: 4, // 到达终点后会带来多少点伤害（1 ~ 10）
 				shield: 1
 			},
 			{
 				// idx: 8
 				name: "monster shield-life",
 				desc: "防御很强、生命值很高的怪物",
-				speed: 4,
+				speed: 3,
 				max_speed: 10,
-				life: 500,
-				damage: 7, // 到达终点后会带来多少点伤害（1 ~ 10）
-				shield: 20
+				life: 300,
+				damage: 5, // 到达终点后会带来多少点伤害（1 ~ 10）
+				shield: 15
 			}
 		];
 

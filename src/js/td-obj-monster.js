@@ -332,7 +332,7 @@ _TD.a.push(function (TD) {
 			this.rgb_b = rgb[2];
 			this.rgb_a = 1;
 
-			this.wait = this.wait0 = TD.exp_fps_half;
+			this.wait = this.wait0 = TD.exp_fps;
 
 			cfg.monster.grid.scene.addElement(this);
 		},

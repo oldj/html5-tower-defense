@@ -196,6 +196,29 @@ _TD.a.push(function (TD) {
 		},
 
 		/**
+		 * 检查假如在地图 (x, y) 的位置修建建筑，是否会阻塞当前怪物
+		 * @param mx {Number} 地图的 x 坐标
+		 * @param my {Number} 地图的 y 坐标
+		 * @return {Boolean}
+		 */
+		chkIfBlocked: function (mx, my) {
+
+			var _this = this,
+				fw = new TD.FindWay(
+					this.map.grid_x, this.map.grid_y,
+					this.grid.mx, this.grid.my,
+					this.map.exit.mx, this.map.exit.my,
+					function (x, y) {
+						return !(x == mx && y == my) &&
+							_this.map.checkPassable(x, y);
+					}
+				);
+
+			return fw.is_blocked;
+
+		},
+
+		/**
 		 * 怪物前进的道路被阻塞（被建筑包围了）
 		 */
 		beBlocked: function () {

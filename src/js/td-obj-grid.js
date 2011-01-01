@@ -50,7 +50,8 @@ _TD.a.push(function (TD) {
 		checkBlock: function () {
 			if (this.is_entrance || this.is_exit) return true;
 
-			var _this = this,
+			var is_blocked,
+				_this = this,
 				fw = new TD.FindWay(
 					this.map.grid_x, this.map.grid_y,
 					this.map.entrance.mx, this.map.entrance.my,
@@ -60,7 +61,19 @@ _TD.a.push(function (TD) {
 					}
 				);
 
-			return fw.is_blocked;
+			is_blocked = fw.is_blocked;
+
+			if (!is_blocked) {
+				is_blocked = !!this.map.anyMonster(function (obj) {
+					return obj.chkIfBlocked(_this.mx, _this.my);
+				});
+				if (is_blocked)
+					this._block_msg = TD._t("monster_be_blocked");
+			} else {
+				this._block_msg = TD._t("blocked");
+			}
+
+			return is_blocked;
 		},
 
 		/**
@@ -238,8 +251,7 @@ _TD.a.push(function (TD) {
 				// 如果处于建设模式下，并且点击在主地图的空格子上，则尝试建设指定建筑
 				if (this.checkBlock()) {
 					// 起点与终点之间被阻塞，不能修建
-					var msg = TD._t("blocked");
-					this.scene.panel.balloontip.msg(msg, this);
+					this.scene.panel.balloontip.msg(this._block_msg, this);
 				} else {
 					// 购买建筑
 					this.buyBuilding(this.map.pre_building.type);

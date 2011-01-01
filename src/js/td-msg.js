@@ -53,6 +53,7 @@ _TD.a.push(function (TD) {
 		"button_pause_desc_0": "游戏暂停",
 		"button_pause_desc_1": "游戏继续",
 		"blocked": "不能在这儿修建建筑，起点与终点之间至少要有一条路可到达！",
+		"monster_be_blocked": "不能在这儿修建建筑，有怪物被围起来了！",
 		"_": "ERROR"
 	};
 

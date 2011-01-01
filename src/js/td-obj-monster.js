@@ -88,7 +88,7 @@ _TD.a.push(function (TD) {
 
 			var balloontip = this.scene.panel.balloontip;
 			if (balloontip.el == this) {
-				balloontip.text = TD._t("monster_info", [this.life, this.shield, this.damage, this.speed]);
+				balloontip.text = TD._t("monster_info", [this.life, this.shield, this.speed, this.damage]);
 			}
 
 		},
@@ -252,7 +252,7 @@ _TD.a.push(function (TD) {
 				balloontip.el = null;
 			} else {
 				msg = TD._t("monster_info",
-					[this.life, this.shield, this.damage, this.speed]),
+					[this.life, this.shield, this.speed, this.damage]),
 				balloontip.msg(msg, this);
 			}
 		},

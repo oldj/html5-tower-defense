@@ -162,18 +162,20 @@ _TD.a.push(function (TD) {
 	 * 怪物类型在 range 中指定，如未指定，则为随机
 	 */
 	TD.makeMonsters = function (n, range) {
-		var a = [], count = 0, i, c, d, r, l;
+		var a = [], count = 0, i, c, d, r, l = TD.monster_type_count;
 		if (!range) {
 			range = [];
-			for (i = 0; i < TD.monster_type_count; i ++) {
+			for (i = 0; i < l; i ++) {
 				range.push(i);
 			}
 		}
-		l = range.length;
 
 		while (count < n) {
 			d = n - count;
-			c = Math.floor(Math.random() * d) + 1;
+			c = Math.min(
+					Math.floor(Math.random() * d) + 1,
+					3 // 同一类型的怪物一次最多出现 3 个，防止某一波中怪出大量高防御或高速度的怪
+	 			);
 			r = Math.floor(Math.random() * l);
 			a.push([c, range[r]]);
 			count += c;

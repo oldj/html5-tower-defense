@@ -49,7 +49,7 @@ _TD.a.push(function (TD) {
 			if (this.money < 1) this.money = 1;
 
 			this.color = attr.color || TD.lang.rndRGB();
-			this.r = this.damage;
+			this.r = Math.floor(this.damage * 1.5);
 			if (this.r < 4) this.r = 4;
 			if (this.r > TD.grid_size / 2 - 4) this.r = TD.grid_size / 2 - 4;
 			this.render = attr.render;
@@ -335,6 +335,8 @@ _TD.a.push(function (TD) {
 			this.wait = this.wait0 = TD.exp_fps;
 
 			cfg.monster.grid.scene.addElement(this);
+
+			delete cfg.monster;
 		},
 		step: function () {
 			if (!this.is_valid) return;

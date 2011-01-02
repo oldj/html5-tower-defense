@@ -99,6 +99,7 @@ _TD.a.push(function (TD) {
 		},
 		hide: function () {
 			this.is_visiable = false;
+			this.onOut();
 		},
 		show: function () {
 			this.is_visiable = true;

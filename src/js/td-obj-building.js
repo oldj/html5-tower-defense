@@ -496,8 +496,22 @@ _TD.a.push(function (TD) {
 				});
 
 			if (monster) {
+				// 击中的怪物
 				monster.beHit(this.building, this.damage);
 				this.is_valid = false;
+
+				// 子弹小爆炸效果
+				TD.Explode(this.id + "-explode", {
+					cx: this.cx,
+					cy: this.cy,
+					r: this.r,
+					step_level: this.step_level,
+					render_level: this.render_level,
+					color: this.color,
+					scene: this.map.scene,
+					time: 0.2
+				});
+
 				return true;
 			}
 			return false;

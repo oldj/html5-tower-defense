@@ -109,7 +109,15 @@ _TD.a.push(function (TD) {
 			TD.money += this.money;
 			building.killed ++;
 
-			TD.MonsterExplode(this.id + "-explode", {monster: this});
+			TD.Explode(this.id + "-explode", {
+				cx: this.cx,
+				cy: this.cy,
+				color: this.color,
+				r: this.r,
+				step_level: this.step_level,
+				render_level: this.render_level,
+				scene: this.grid.scene
+			});
 		},
 		arrive: function () {
 			this.grid = this.next_grid;
@@ -315,28 +323,25 @@ _TD.a.push(function (TD) {
 	/**
 	 * 怪物死亡时的爆炸效果对象
 	 */
-	var monster_explode_obj = {
+	var explode_obj = {
 		_init: function (cfg) {
-			cfg = cfg || {monster: null};
-			if (!cfg.monster) return;
+			cfg = cfg || {};
 
-			var rgb = TD.lang.rgb2Arr(cfg.monster.color);
-			this.cx = cfg.monster.cx;
-			this.cy = cfg.monster.cy;
-			this.r = cfg.monster.r;
-			this.step_level = cfg.monster.step_level;
-			this.render_level = cfg.monster.render_level;
+			var rgb = TD.lang.rgb2Arr(cfg.color);
+			this.cx = cfg.cx;
+			this.cy = cfg.cy;
+			this.r = cfg.r;
+			this.step_level = cfg.step_level;
+			this.render_level = cfg.render_level;
 
 			this.rgb_r = rgb[0];
 			this.rgb_g = rgb[1];
 			this.rgb_b = rgb[2];
 			this.rgb_a = 1;
 
-			this.wait = this.wait0 = TD.exp_fps;
+			this.wait = this.wait0 = TD.exp_fps * (cfg.time || 1);
 
-			cfg.monster.grid.scene.addElement(this);
-
-			delete cfg.monster;
+			cfg.scene.addElement(this);
 		},
 		step: function () {
 			if (!this.is_valid) return;
@@ -361,18 +366,27 @@ _TD.a.push(function (TD) {
 
 	/**
 	 * @param cfg {Object} 配置对象
-	 *		 至少需要包含以下项：
 	 *		 {
-	 * 			 monster: 怪物对象
+	 *			// 至少需要包含以下项：
+	 * 			 cx: 中心 x 坐标
+	 * 			 cy: 中心 y 坐标
+	 * 			 r: 半径
+	 * 			 color: RGB色彩，形如“#f98723”
+	 * 			 scene: Scene 对象
+	 * 			 step_level:
+	 * 			 render_level:
+	 *
+	 * 			// 以下项可选：
+	 * 			time: 持续时间，默认为 1，单位大致为秒（根据渲染情况而定，不是很精确）
 	 *		 }
 	 */
-	TD.MonsterExplode = function (id, cfg) {
+	TD.Explode = function (id, cfg) {
 //		cfg.on_events = ["enter", "out"];
-		var monster_explode = new TD.Element(id, cfg);
-		TD.lang.mix(monster_explode, monster_explode_obj);
-		monster_explode._init(cfg);
+		var explode = new TD.Element(id, cfg);
+		TD.lang.mix(explode, explode_obj);
+		explode._init(cfg);
 
-		return monster_explode;
+		return explode;
 	};
 
 }); // _TD.a.push end

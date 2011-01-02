@@ -136,7 +136,6 @@ _TD.a.push(function (TD) {
 		 * @param pre_add_list {Array} Optional [element1, element2, ...]
 		 */
 		addToScene: function (scene, step_level, render_level, pre_add_list) {
-			var i, l;
 			this.scene = scene;
 			if (isNaN(step_level)) return;
 			this.step_level = step_level || this.step_level;

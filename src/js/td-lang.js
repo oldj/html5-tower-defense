@@ -129,7 +129,7 @@ _TD.a.push(function (TD) {
 		 */
 		rndSort: function (list) {
 			var a = list.concat();
-			return a.sort(function (i, j) {
+			return a.sort(function () {
 				return Math.random() - 0.5;
 			});
 		},

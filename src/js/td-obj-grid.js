@@ -282,6 +282,6 @@ _TD.a.push(function (TD) {
 		grid._init(cfg);
 
 		return grid;
-	}
+	};
 
 }); // _TD.a.push end

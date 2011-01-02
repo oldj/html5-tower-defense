@@ -542,7 +542,7 @@ _TD.a.push(function (TD) {
 		bullet._init(cfg);
 
 		return bullet;
-	}
+	};
 
 }); // _TD.a.push end
 

@@ -373,7 +373,7 @@ _TD.a.push(function (TD) {
 		monster_explode._init(cfg);
 
 		return monster_explode;
-	}
+	};
 
 }); // _TD.a.push end
 

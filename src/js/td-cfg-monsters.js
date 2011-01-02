@@ -192,7 +192,7 @@ _TD.a.push(function (TD) {
 		}
 
 		return a;
-	}
+	};
 
 
 }); // _TD.a.push end

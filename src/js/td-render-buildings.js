@@ -172,7 +172,7 @@ _TD.a.push(function (TD) {
 			ctx.closePath();
 			ctx.stroke();
 		},
-		"laser_gun": function (b, ctx, map, gs, gs2) {
+		"laser_gun": function (b, ctx/*, map, gs, gs2*/) {
 //			var target_position = b.getTargetPosition();
 
 			ctx.fillStyle = "#f00";

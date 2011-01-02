@@ -418,7 +418,7 @@ _TD.a.push(function (TD) {
 		obj._init(cfg);
 
 		return obj;
-	}
+	};
 
 
 	/**
@@ -429,7 +429,7 @@ _TD.a.push(function (TD) {
 //		TD.life += n;
 		TD.life_recover = n;
 		TD.log("life recover: " + n);
-	}
+	};
 
 }); // _TD.a.push end
 

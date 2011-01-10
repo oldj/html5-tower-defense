@@ -1,14 +1,10 @@
-/**
+/*
+ * Copyright (c) 2011.
  *
+ * Author: oldj <oldj.wu@gmail.com>
+ * Blog: http://oldj.net/
  *
- * Author:
- *	oldj <oldj.wu@gmail.com>
- *	http://oldj.net/
- *
- * File: td-cfg-building.js
- *
- * Copyright
- * Create Date: 2010-11-13 08:34:24
+ * Last Update: 2011/1/10 0/1/43
  */
 /**
  * 本文件定义了建筑的参数、属性

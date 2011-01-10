@@ -1,14 +1,12 @@
-/**
+/*
+ * Copyright (c) 2011.
  *
- * Author:
- *	oldj <oldj.wu@gmail.com>
- *	http://oldj.net/
+ * Author: oldj <oldj.wu@gmail.com>
+ * Blog: http://oldj.net/
  *
- * File: td-cfg-monsters.js
- *
- * Create Date: 2010-11-21 09:51:35
- *
- * 本文件定义了怪物默认属性及渲染方法
+ * Last Update: 2011/1/10 5:22:52
+ */
+/** 本文件定义了怪物默认属性及渲染方法
  */
 
 

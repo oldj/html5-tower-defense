@@ -1,13 +1,10 @@
-/**
+/*
+ * Copyright (c) 2011.
  *
- * Author:
- *	oldj <oldj.wu@gmail.com>
- *	http://oldj.net/
+ * Author: oldj <oldj.wu@gmail.com>
+ * Blog: http://oldj.net/
  *
- * File: td-stage.js
- *
- * Create Date: 2010-11-18 13:39:45
- *
+ * Last Update: 2011/1/10 5:22:52
  */
 
 

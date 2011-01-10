@@ -1,13 +1,10 @@
-/**
+/*
+ * Copyright (c) 2011.
  *
- * Author:
- *	oldj <oldj.wu@gmail.com>
- *	http://oldj.net/
+ * Author: oldj <oldj.wu@gmail.com>
+ * Blog: http://oldj.net/
  *
- * File: td-plot-buildings.js
- *
- * Create Date: 2010-11-12 14:16:47
- *
+ * Last Update: 2011/1/10 5:22:52
  */
 
 // _TD.a.push begin

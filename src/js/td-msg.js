@@ -1,14 +1,10 @@
-/**
+/*
+ * Copyright (c) 2011.
  *
- * Author:
- *	oldj <oldj.wu@gmail.com>
- *	http://oldj.net/
+ * Author: oldj <oldj.wu@gmail.com>
+ * Blog: http://oldj.net/
  *
- * File: td-msg.js
- * @require td.js
- *
- * Create Date: 2010-11-11 16:14:44
- *
+ * Last Update: 2011/1/10 5:22:52
  */
 
 

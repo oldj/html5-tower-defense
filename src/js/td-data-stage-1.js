@@ -1,14 +1,12 @@
-/**
+/*
+ * Copyright (c) 2011.
  *
- * Author:
- *	oldj <oldj.wu@gmail.com>
- *	http://oldj.net/
+ * Author: oldj <oldj.wu@gmail.com>
+ * Blog: http://oldj.net/
  *
- * File: td-data-stage-1.js
- *
- * Create Date: 2010-11-18 16:01:22
- *
- * 默认关卡
+ * Last Update: 2011/1/10 5:22:52
+ */
+/** 默认关卡
  */
 
 // _TD.a.push begin

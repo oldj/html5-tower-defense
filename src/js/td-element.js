@@ -1,14 +1,12 @@
-/**
+/*
+ * Copyright (c) 2011.
  *
- * Author:
- *	oldj <oldj.wu@gmail.com>
- *	http://oldj.net/
+ * Author: oldj <oldj.wu@gmail.com>
+ * Blog: http://oldj.net/
  *
- * File: td-element.js
- *
- * Create Date: 2010-11-18 15:34:51
- *
- * 本文件定义了 Element 类，这个类是游戏中所有元素的基类，
+ * Last Update: 2011/1/10 5:22:52
+ */
+/** 本文件定义了 Element 类，这个类是游戏中所有元素的基类，
  * 包括地图、格子、怪物、建筑、子弹、气球提示等都基于这个类
  *
  */

@@ -1,13 +1,10 @@
-/**
+/*
+ * Copyright (c) 2011.
  *
- * Author:
- *	oldj <oldj.wu@gmail.com>
- *	http://oldj.net/
+ * Author: oldj <oldj.wu@gmail.com>
+ * Blog: http://oldj.net/
  *
- * File: td-panel.js
- *
- * Create Date: 2010-11-21 11:41:20
- *
+ * Last Update: 2011/1/10 5:22:52
  */
 
 

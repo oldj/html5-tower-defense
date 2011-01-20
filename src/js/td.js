@@ -13,7 +13,7 @@ var _TD = {
 		delete this.init; // 一旦初始化运行，即删除这个入口引用，防止初始化方法被再次调用
 
 		var i, TD = {
-			version: "0.1.15", // 版本命名规范参考：http://semver.org/
+			version: "0.1.16", // 版本命名规范参考：http://semver.org/
 			is_debug: !!is_debug,
 			is_paused: true,
 			width: 16, // 横向多少个格子

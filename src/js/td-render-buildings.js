@@ -64,6 +64,15 @@ _TD.a.push(function (TD) {
 			ctx.fill();
 			ctx.stroke();
 
+			ctx.lineWidth = 3;
+			ctx.beginPath();
+			ctx.moveTo(b.cx, b.cy);
+			b.muzzle = lineTo2(ctx, b.cx, b.cy, target_position[0], target_position[1], gs2);
+			ctx.closePath();
+//			ctx.fill();
+			ctx.stroke();
+
+			ctx.lineWidth = 1;
 			ctx.fillStyle = "#060";
 			ctx.beginPath();
 			ctx.arc(b.cx, b.cy, 7, 0, Math.PI * 2, true);
@@ -71,19 +80,12 @@ _TD.a.push(function (TD) {
 			ctx.fill();
 			ctx.stroke();
 
-			ctx.fillStyle = "#000";
+			ctx.fillStyle = "#cec";
 			ctx.beginPath();
-			ctx.arc(b.cx, b.cy, 3, 0, Math.PI * 2, true);
+			ctx.arc(b.cx + 2, b.cy - 2, 3, 0, Math.PI * 2, true);
 			ctx.closePath();
 			ctx.fill();
 
-			ctx.lineWidth = 3;
-			ctx.beginPath();
-			ctx.moveTo(b.cx, b.cy);
-			b.muzzle = lineTo2(ctx, b.cx, b.cy, target_position[0], target_position[1], gs2);
-			ctx.closePath();
-			ctx.fill();
-			ctx.stroke();
 		},
 		"LMG": function (b, ctx, map, gs, gs2) {
 			var target_position = b.getTargetPosition();
@@ -97,19 +99,6 @@ _TD.a.push(function (TD) {
 			ctx.fill();
 			ctx.stroke();
 
-			ctx.fillStyle = "#060";
-			ctx.beginPath();
-			ctx.arc(b.cx, b.cy, 5, 0, Math.PI * 2, true);
-			ctx.closePath();
-			ctx.fill();
-			ctx.stroke();
-
-			ctx.fillStyle = "#000";
-			ctx.beginPath();
-			ctx.arc(b.cx, b.cy, 3, 0, Math.PI * 2, true);
-			ctx.closePath();
-			ctx.fill();
-
 			ctx.lineWidth = 2;
 			ctx.beginPath();
 			ctx.moveTo(b.cx, b.cy);
@@ -117,6 +106,21 @@ _TD.a.push(function (TD) {
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
+
+			ctx.lineWidth = 1;
+			ctx.fillStyle = "#66c";
+			ctx.beginPath();
+			ctx.arc(b.cx, b.cy, 5, 0, Math.PI * 2, true);
+			ctx.closePath();
+			ctx.fill();
+			ctx.stroke();
+
+			ctx.fillStyle = "#ccf";
+			ctx.beginPath();
+			ctx.arc(b.cx + 1, b.cy - 1, 2, 0, Math.PI * 2, true);
+			ctx.closePath();
+			ctx.fill();
+
 		},
 		"HMG": function (b, ctx, map, gs, gs2) {
 			var target_position = b.getTargetPosition();
@@ -130,19 +134,6 @@ _TD.a.push(function (TD) {
 			ctx.fill();
 			ctx.stroke();
 
-			ctx.fillStyle = "#630";
-			ctx.beginPath();
-			ctx.arc(b.cx, b.cy, gs2 - 5, 0, Math.PI * 2, true);
-			ctx.closePath();
-			ctx.fill();
-			ctx.stroke();
-
-			ctx.fillStyle = "#000";
-			ctx.beginPath();
-			ctx.arc(b.cx, b.cy, 4, 0, Math.PI * 2, true);
-			ctx.closePath();
-			ctx.fill();
-
 			ctx.lineWidth = 5;
 			ctx.beginPath();
 			ctx.moveTo(b.cx, b.cy);
@@ -150,6 +141,27 @@ _TD.a.push(function (TD) {
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
+
+			ctx.lineWidth = 1;
+			ctx.fillStyle = "#630";
+			ctx.beginPath();
+			ctx.arc(b.cx, b.cy, gs2 - 5, 0, Math.PI * 2, true);
+			ctx.closePath();
+			ctx.fill();
+			ctx.stroke();
+
+			ctx.fillStyle = "#960";
+			ctx.beginPath();
+			ctx.arc(b.cx + 1, b.cy - 1, 8, 0, Math.PI * 2, true);
+			ctx.closePath();
+			ctx.fill();
+
+			ctx.fillStyle = "#fcc";
+			ctx.beginPath();
+			ctx.arc(b.cx + 3, b.cy - 3, 4, 0, Math.PI * 2, true);
+			ctx.closePath();
+			ctx.fill();
+
 		},
 		"wall": function (b, ctx, map, gs, gs2) {
 			ctx.lineWidth = 1;
@@ -195,6 +207,12 @@ _TD.a.push(function (TD) {
 			ctx.fillStyle = "#000";
 			ctx.beginPath();
 			ctx.arc(b.cx, b.cy, 3, 0, Math.PI * 2, true);
+			ctx.closePath();
+			ctx.fill();
+
+			ctx.fillStyle = "#666";
+			ctx.beginPath();
+			ctx.arc(b.cx + 1, b.cy - 1, 1, 0, Math.PI * 2, true);
 			ctx.closePath();
 			ctx.fill();
 

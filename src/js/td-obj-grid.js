@@ -45,7 +45,10 @@ _TD.a.push(function (TD) {
 		 * 检查如果在当前格子建东西，是否会导致起点与终点被阻塞
 		 */
 		checkBlock: function () {
-			if (this.is_entrance || this.is_exit) return true;
+			if (this.is_entrance || this.is_exit) {
+				this._block_msg = TD._t("entrance_or_exit_be_blocked");
+				return true;
+			}
 
 			var is_blocked,
 				_this = this,

@@ -24,7 +24,7 @@ _TD.a.push(function (TD) {
 			this.height = TD.grid_size;
 			this.is_entrance = this.is_exit = false;
 			this.passable_flag = 1; // 0: 不可通过; 1: 可通过
-			this.build_flag = 1,// 0: 不可修建; 1: 可修建; 2: 已修建
+			this.build_flag = 1;// 0: 不可修建; 1: 可修建; 2: 已修建
 			this.building = null;
 			this.caculatePos();
 		},

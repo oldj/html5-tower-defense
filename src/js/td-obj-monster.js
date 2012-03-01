@@ -286,7 +286,7 @@ _TD.a.push(function (TD) {
 				balloontip.el = null;
 			} else {
 				msg = TD._t("monster_info",
-					[this.life, this.shield, this.speed, this.damage]),
+					[this.life, this.shield, this.speed, this.damage]);
 				balloontip.msg(msg, this);
 			}
 		},

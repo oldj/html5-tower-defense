@@ -348,7 +348,7 @@ _TD.a.push(function (TD) {
 				this.is_weapon && this.range > 0 && this.grid
 				) {
 				// 画射程
-				ctx.lineWidth = 1;
+				ctx.lineWidth = 1 * _TD.retina;
 				ctx.fillStyle = "rgba(187, 141, 32, 0.15)";
 				ctx.strokeStyle = "#bb8d20";
 				ctx.beginPath();
@@ -360,14 +360,14 @@ _TD.a.push(function (TD) {
 
 			if (this.type == "laser_gun" && this.target && this.target.is_valid) {
 				// 画激光
-				ctx.lineWidth = 3;
+				ctx.lineWidth = 3 * _TD.retina;
 				ctx.strokeStyle = "rgba(50, 50, 200, 0.5)";
 				ctx.beginPath();
 				ctx.moveTo(this.cx, this.cy);
 				ctx.lineTo(this.target.cx, this.target.cy);
 				ctx.closePath();
 				ctx.stroke();
-				ctx.lineWidth = 1;
+				ctx.lineWidth = 1 * _TD.retina;
 				ctx.strokeStyle = "rgba(150, 150, 255, 0.5)";
 				ctx.beginPath();
 				ctx.lineTo(this.cx, this.cy);
@@ -487,7 +487,7 @@ _TD.a.push(function (TD) {
 		checkHit: function () {
 			var cx = this.cx,
 				cy = this.cy,
-				r = this.r,
+				r = this.r * _TD.retina,
 				monster = this.map.anyMonster(function (obj) {
 					return Math.pow(obj.cx - cx, 2) + Math.pow(obj.cy - cy, 2) <= Math.pow(obj.r + r, 2) * 2;
 				});

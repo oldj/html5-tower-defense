@@ -57,7 +57,7 @@ _TD.a.push(function (TD) {
 			this.btn_pause = new TD.Button("panel-btn-pause", {
 				scene: this.scene,
 				x: this.x,
-				y: this.y + 260,
+				y: this.y + 260 * _TD.retina,
 				text: TD._t("button_pause_text"),
 				//desc: TD._t("button_pause_desc_0"),
 				step_level: this.step_level,
@@ -86,7 +86,7 @@ _TD.a.push(function (TD) {
 			this.btn_restart = new TD.Button("panel-btn-restart", {
 				scene: this.scene,
 				x: this.x,
-				y: this.y + 300,
+				y: this.y + 300 * _TD.retina,
 				is_visiable: false,
 				text: TD._t("button_restart_text"),
 				step_level: this.step_level,
@@ -104,7 +104,7 @@ _TD.a.push(function (TD) {
 			this.btn_upgrade = new TD.Button("panel-btn-upgrade", {
 				scene: this.scene,
 				x: this.x,
-				y: this.y + 300,
+				y: this.y + 300 * _TD.retina,
 				is_visiable: false,
 				text: TD._t("button_upgrade_text"),
 				step_level: this.step_level,
@@ -117,7 +117,7 @@ _TD.a.push(function (TD) {
 			this.btn_sell = new TD.Button("panel-btn-sell", {
 				scene: this.scene,
 				x: this.x,
-				y: this.y + 340,
+				y: this.y + 340 * _TD.retina,
 				is_visiable: false,
 				text: TD._t("button_sell_text"),
 				step_level: this.step_level,
@@ -147,25 +147,25 @@ _TD.a.push(function (TD) {
 			ctx.textAlign = "left";
 			ctx.textBaseline = "top";
 			ctx.fillStyle = "#000";
-			ctx.font = "normal 12px 'Courier New'";
+			ctx.font = "normal " + (12 * _TD.retina) + "px 'Courier New'";
 			ctx.beginPath();
 			ctx.fillText(TD._t("panel_money_title") + TD.money, this.x, this.y);
-			ctx.fillText(TD._t("panel_score_title") + TD.score, this.x, this.y + 20);
-			ctx.fillText(TD._t("panel_life_title") + TD.life, this.x, this.y + 40);
+			ctx.fillText(TD._t("panel_score_title") + TD.score, this.x, this.y + 20 * _TD.retina);
+			ctx.fillText(TD._t("panel_life_title") + TD.life, this.x, this.y + 40 * _TD.retina);
 			ctx.fillText(TD._t("panel_building_title") + this.map.buildings.length,
-				this.x, this.y + 60);
+				this.x, this.y + 60 * _TD.retina);
 			ctx.fillText(TD._t("panel_monster_title") + this.map.monsters.length,
-				this.x, this.y + 80);
-			ctx.fillText(TD._t("wave_info", [this.scene.wave]), this.x, this.y + 210);
+				this.x, this.y + 80 * _TD.retina);
+			ctx.fillText(TD._t("wave_info", [this.scene.wave]), this.x, this.y + 210 * _TD.retina);
 			ctx.closePath();
 
 			if (this._life_recover_wait) {
 				// 画生命恢复提示
 				var a = this._life_recover_wait / this._life_recover_wait2;
 				ctx.fillStyle = "rgba(255, 0, 0, " + a + ")";
-				ctx.font = "bold 12px 'Verdana'";
+				ctx.font = "bold " + (12 * _TD.retina) + "px 'Verdana'";
 				ctx.beginPath();
-				ctx.fillText("+" + this._life_recover2, this.x + 60, this.y + 40);
+				ctx.fillText("+" + this._life_recover2, this.x + 60 * _TD.retina, this.y + 40 * _TD.retina);
 				ctx.closePath();
 				this._life_recover_wait --;
 			}
@@ -173,7 +173,7 @@ _TD.a.push(function (TD) {
 			// 在右下角画版本信息
 			ctx.textAlign = "right";
 			ctx.fillStyle = "#666";
-			ctx.font = "normal 12px 'Courier New'";
+			ctx.font = "normal " + (12 * _TD.retina) + "px 'Courier New'";
 			ctx.beginPath();
 			ctx.fillText("version: " + TD.version + " | oldj.net", TD.stage.width - TD.padding,
 				TD.stage.height - TD.padding * 2);
@@ -182,7 +182,7 @@ _TD.a.push(function (TD) {
 			// 在左下角画FPS信息
 			ctx.textAlign = "left";
 			ctx.fillStyle = "#666";
-			ctx.font = "normal 12px 'Courier New'";
+			ctx.font = "normal " + (12 * _TD.retina) + "px 'Courier New'";
 			ctx.beginPath();
 			ctx.fillText("FPS: " + TD.fps, TD.padding, TD.stage.height - TD.padding * 2);
 			ctx.closePath();
@@ -223,18 +223,18 @@ _TD.a.push(function (TD) {
 				this.x = this.x - this.width;
 			}
 
-			this.px = this.x + 5;
-			this.py = this.y + 4;
+			this.px = this.x + 5 * _TD.retina;
+			this.py = this.y + 4 * _TD.retina;
 		},
 		msg: function (txt, el) {
 			this.text = txt;
 			var ctx = TD.ctx;
-			ctx.font = "normal 12px 'Courier New'";
+			ctx.font = "normal " + (12 * _TD.retina) + "px 'Courier New'";
 			this.width = Math.max(
-				ctx.measureText(txt).width + 10,
-				TD.lang.strLen2(txt) * 6 + 10
+				ctx.measureText(txt).width + 10 * _TD.retina,
+				TD.lang.strLen2(txt) * 6 + 10 * _TD.retina
 				);
-			this.height = 24;
+			this.height = 20 * _TD.retina;
 
 			if (el && el.cx && el.cy) {
 				this.el = el;
@@ -258,7 +258,7 @@ _TD.a.push(function (TD) {
 			if (!this.el) return;
 			var ctx = TD.ctx;
 
-			ctx.lineWidth = 1;
+			ctx.lineWidth = 1 * _TD.retina;
 			ctx.fillStyle = "rgba(255, 255, 0, 0.5)";
 			ctx.strokeStyle = "rgba(222, 222, 0, 0.9)";
 			ctx.beginPath();
@@ -270,7 +270,7 @@ _TD.a.push(function (TD) {
 			ctx.textAlign = "left";
 			ctx.textBaseline = "top";
 			ctx.fillStyle = "#000";
-			ctx.font = "normal 12px 'Courier New'";
+			ctx.font = "normal " + (12 * _TD.retina) + "px 'Courier New'";
 			ctx.beginPath();
 			ctx.fillText(this.text, this.px, this.py);
 			ctx.closePath();
@@ -302,10 +302,10 @@ _TD.a.push(function (TD) {
 			this.onClick = cfg.onClick || TD.lang.nullFunc;
 			this.x = cfg.x;
 			this.y = cfg.y;
-			this.width = cfg.width || 80;
-			this.height = cfg.height || 30;
-			this.font_x = this.x + 8;
-			this.font_y = this.y + 7;
+			this.width = cfg.width || 80 * _TD.retina;
+			this.height = cfg.height || 30 * _TD.retina;
+			this.font_x = this.x + 8 * _TD.retina;
+			this.font_y = this.y + 9 * _TD.retina;
 			this.scene = cfg.scene;
 			this.desc = cfg.desc || "";
 
@@ -327,7 +327,7 @@ _TD.a.push(function (TD) {
 		render: function () {
 			var ctx = TD.ctx;
 
-			ctx.lineWidth = 2;
+			ctx.lineWidth = 2 * _TD.retina;
 			ctx.fillStyle = this.is_hover ? "#eee" : "#ccc";
 			ctx.strokeStyle = "#999";
 			ctx.beginPath();
@@ -339,7 +339,7 @@ _TD.a.push(function (TD) {
 			ctx.textAlign = "left";
 			ctx.textBaseline = "top";
 			ctx.fillStyle = "#000";
-			ctx.font = "normal 12px 'Courier New'";
+			ctx.font = "normal " + (12 * _TD.retina) + "px 'Courier New'";
 			ctx.beginPath();
 			ctx.fillText(this.text, this.font_x, this.font_y);
 			ctx.closePath();

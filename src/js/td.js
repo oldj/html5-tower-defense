@@ -9,6 +9,7 @@
 
 var _TD = {
 	a: [],
+	retina: 2,
 	init: function (td_board, is_debug) {
 		delete this.init; // 一旦初始化运行，即删除这个入口引用，防止初始化方法被再次调用
 
@@ -28,8 +29,8 @@ var _TD = {
 			defaultSettings: function () {
 				return {
 					step_time: 36, // 每一次 step 循环之间相隔多少毫秒
-					grid_size: 32, // px
-					padding: 10, // px
+					grid_size: 32 * _TD.retina, // px
+					padding: 10 * _TD.retina, // px
 					global_speed: 0.1 // 全局速度系数
 				};
 			},
@@ -69,6 +70,8 @@ var _TD = {
 
 				this.canvas.setAttribute("width", this.stage.width);
 				this.canvas.setAttribute("height", this.stage.height);
+				this.canvas.style.width = (this.stage.width / _TD.retina) + "px";
+				this.canvas.style.height = (this.stage.height / _TD.retina) + "px";
 
 				this.canvas.onmousemove = function (e) {
 					var xy = _this.getEventXY.call(_this, e);
@@ -173,7 +176,7 @@ var _TD = {
 					x = e.clientX - wra.offsetLeft - this.canvas.offsetLeft + Math.max(document.documentElement.scrollLeft, document.body.scrollLeft),
 					y = e.clientY - wra.offsetTop - this.canvas.offsetTop + Math.max(document.documentElement.scrollTop, document.body.scrollTop);
 
-				return [x, y];
+				return [x * _TD.retina, y * _TD.retina];
 			},
 
 			/**

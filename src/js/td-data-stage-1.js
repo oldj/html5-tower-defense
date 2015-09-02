@@ -93,8 +93,8 @@ _TD.a.push(function (TD) {
 	TD.getDefaultStageData = function (k) {
 		var data = {
 			stage_main: {
-				width: 640, // px
-				height: 560,
+				width: 640 * _TD.retina, // px
+				height: 560 * _TD.retina,
 				init: _stage_main_init,
 				step2: _stage_main_step2
 			},
@@ -147,7 +147,7 @@ _TD.a.push(function (TD) {
 						grid_x: 3,
 						grid_y: 3,
 						x: 0,
-						y: 110,
+						y: 110 * _TD.retina,
 						grids_cfg: [
 							{
 								pos: [0, 0],

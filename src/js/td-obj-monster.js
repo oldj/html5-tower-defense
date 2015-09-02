@@ -46,9 +46,9 @@ _TD.a.push(function (TD) {
 			if (this.money < 1) this.money = 1;
 
 			this.color = attr.color || TD.lang.rndRGB();
-			this.r = Math.floor(this.damage * 1.2);
-			if (this.r < 4) this.r = 4;
-			if (this.r > TD.grid_size / 2 - 4) this.r = TD.grid_size / 2 - 4;
+			this.r = Math.floor(this.damage * 1.2) * _TD.retina;
+			if (this.r < (4 * _TD.retina)) this.r = 4 * _TD.retina;
+			if (this.r > TD.grid_size / 2 - (4 * _TD.retina)) this.r = TD.grid_size / 2 - (4 * _TD.retina);
 			this.render = attr.render;
 
 			this.grid = null; // 当前格子
@@ -327,7 +327,7 @@ _TD.a.push(function (TD) {
 			var rgb = TD.lang.rgb2Arr(cfg.color);
 			this.cx = cfg.cx;
 			this.cy = cfg.cy;
-			this.r = cfg.r;
+			this.r = cfg.r * _TD.retina;
 			this.step_level = cfg.step_level;
 			this.render_level = cfg.render_level;
 

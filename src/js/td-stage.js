@@ -19,7 +19,7 @@ _TD.a.push(function (TD) {
 	TD.Stage = function (id, cfg) {
 		this.id = id || ("stage-" + TD.lang.rndStr());
 		this.cfg = cfg || {};
-		this.width = this.cfg.width || 600;
+		this.width = this.cfg.width || 640;
 		this.height = this.cfg.height || 540;
 
 		/**

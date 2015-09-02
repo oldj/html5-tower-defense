@@ -33,14 +33,14 @@ _TD.a.push(function (TD) {
 		// 画怪物的生命值
 		if (TD.show_monster_life) {
 			var s = Math.floor(TD.grid_size / 4),
-				l = s * 2 - 2;
+				l = s * 2 - 2 * _TD.retina;
 			ctx.fillStyle = "#000";
 			ctx.beginPath();
-			ctx.fillRect(this.cx - s, this.cy - this.r - 6, s * 2, 4);
+			ctx.fillRect(this.cx - s, this.cy - this.r - 6, s * 2, 4 * _TD.retina);
 			ctx.closePath();
 			ctx.fillStyle = "#f00";
 			ctx.beginPath();
-			ctx.fillRect(this.cx - s + 1, this.cy - this.r - 5, this.life * l / this.life0, 2);
+			ctx.fillRect(this.cx - s + _TD.retina, this.cy - this.r - (6 - _TD.retina), this.life * l / this.life0, 2 * _TD.retina);
 			ctx.closePath();
 		}
 	}

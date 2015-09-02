@@ -58,13 +58,13 @@ _TD.a.push(function (TD) {
 			ctx.fillStyle = "#393";
 			ctx.strokeStyle = "#000";
 			ctx.beginPath();
-			ctx.lineWidth = 1;
+			ctx.lineWidth = _TD.retina;
 			ctx.arc(b.cx, b.cy, gs2 - 5, 0, Math.PI * 2, true);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
 
-			ctx.lineWidth = 3;
+			ctx.lineWidth = 3 * _TD.retina;
 			ctx.beginPath();
 			ctx.moveTo(b.cx, b.cy);
 			b.muzzle = lineTo2(ctx, b.cx, b.cy, target_position[0], target_position[1], gs2);
@@ -72,17 +72,17 @@ _TD.a.push(function (TD) {
 //			ctx.fill();
 			ctx.stroke();
 
-			ctx.lineWidth = 1;
+			ctx.lineWidth = _TD.retina;
 			ctx.fillStyle = "#060";
 			ctx.beginPath();
-			ctx.arc(b.cx, b.cy, 7, 0, Math.PI * 2, true);
+			ctx.arc(b.cx, b.cy, 7 * _TD.retina, 0, Math.PI * 2, true);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
 
 			ctx.fillStyle = "#cec";
 			ctx.beginPath();
-			ctx.arc(b.cx + 2, b.cy - 2, 3, 0, Math.PI * 2, true);
+			ctx.arc(b.cx + 2, b.cy - 2, 3 * _TD.retina, 0, Math.PI * 2, true);
 			ctx.closePath();
 			ctx.fill();
 
@@ -93,13 +93,13 @@ _TD.a.push(function (TD) {
 			ctx.fillStyle = "#36f";
 			ctx.strokeStyle = "#000";
 			ctx.beginPath();
-			ctx.lineWidth = 1;
-			ctx.arc(b.cx, b.cy, 7, 0, Math.PI * 2, true);
+			ctx.lineWidth = _TD.retina;
+			ctx.arc(b.cx, b.cy, 7 * _TD.retina, 0, Math.PI * 2, true);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
 
-			ctx.lineWidth = 2;
+			ctx.lineWidth = 2 * _TD.retina;
 			ctx.beginPath();
 			ctx.moveTo(b.cx, b.cy);
 			b.muzzle = lineTo2(ctx, b.cx, b.cy, target_position[0], target_position[1], gs2);
@@ -107,17 +107,17 @@ _TD.a.push(function (TD) {
 			ctx.fill();
 			ctx.stroke();
 
-			ctx.lineWidth = 1;
+			ctx.lineWidth = _TD.retina;
 			ctx.fillStyle = "#66c";
 			ctx.beginPath();
-			ctx.arc(b.cx, b.cy, 5, 0, Math.PI * 2, true);
+			ctx.arc(b.cx, b.cy, 5 * _TD.retina, 0, Math.PI * 2, true);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
 
 			ctx.fillStyle = "#ccf";
 			ctx.beginPath();
-			ctx.arc(b.cx + 1, b.cy - 1, 2, 0, Math.PI * 2, true);
+			ctx.arc(b.cx + 1, b.cy - 1, 2 * _TD.retina, 0, Math.PI * 2, true);
 			ctx.closePath();
 			ctx.fill();
 
@@ -128,13 +128,13 @@ _TD.a.push(function (TD) {
 			ctx.fillStyle = "#933";
 			ctx.strokeStyle = "#000";
 			ctx.beginPath();
-			ctx.lineWidth = 1;
+			ctx.lineWidth = _TD.retina;
 			ctx.arc(b.cx, b.cy, gs2 - 2, 0, Math.PI * 2, true);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
 
-			ctx.lineWidth = 5;
+			ctx.lineWidth = 5 * _TD.retina;
 			ctx.beginPath();
 			ctx.moveTo(b.cx, b.cy);
 			b.muzzle = lineTo2(ctx, b.cx, b.cy, target_position[0], target_position[1], gs2);
@@ -142,29 +142,29 @@ _TD.a.push(function (TD) {
 			ctx.fill();
 			ctx.stroke();
 
-			ctx.lineWidth = 1;
+			ctx.lineWidth = _TD.retina;
 			ctx.fillStyle = "#630";
 			ctx.beginPath();
-			ctx.arc(b.cx, b.cy, gs2 - 5, 0, Math.PI * 2, true);
+			ctx.arc(b.cx, b.cy, gs2 - 5 * _TD.retina, 0, Math.PI * 2, true);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
 
 			ctx.fillStyle = "#960";
 			ctx.beginPath();
-			ctx.arc(b.cx + 1, b.cy - 1, 8, 0, Math.PI * 2, true);
+			ctx.arc(b.cx + 1, b.cy - 1, 8 * _TD.retina, 0, Math.PI * 2, true);
 			ctx.closePath();
 			ctx.fill();
 
 			ctx.fillStyle = "#fcc";
 			ctx.beginPath();
-			ctx.arc(b.cx + 3, b.cy - 3, 4, 0, Math.PI * 2, true);
+			ctx.arc(b.cx + 3, b.cy - 3, 4 * _TD.retina, 0, Math.PI * 2, true);
 			ctx.closePath();
 			ctx.fill();
 
 		},
 		"wall": function (b, ctx, map, gs, gs2) {
-			ctx.lineWidth = 1;
+			ctx.lineWidth = _TD.retina;
 			ctx.fillStyle = "#666";
 			ctx.strokeStyle = "#000";
 			ctx.fillRect(b.cx - gs2 + 1, b.cy - gs2 + 1, gs - 1, gs - 1);
@@ -187,36 +187,36 @@ _TD.a.push(function (TD) {
 			ctx.fillStyle = "#f00";
 			ctx.strokeStyle = "#000";
 			ctx.beginPath();
-			ctx.lineWidth = 1;
+			ctx.lineWidth = _TD.retina;
 //			ctx.arc(b.cx, b.cy, gs2 - 5, 0, Math.PI * 2, true);
-			ctx.moveTo(b.cx, b.cy - 10);
-			ctx.lineTo(b.cx - 8.66, b.cy + 5);
-			ctx.lineTo(b.cx + 8.66, b.cy + 5);
-			ctx.lineTo(b.cx, b.cy - 10);
+			ctx.moveTo(b.cx, b.cy - 10 * _TD.retina);
+			ctx.lineTo(b.cx - 8.66 * _TD.retina, b.cy + 5 * _TD.retina);
+			ctx.lineTo(b.cx + 8.66 * _TD.retina, b.cy + 5 * _TD.retina);
+			ctx.lineTo(b.cx, b.cy - 10 * _TD.retina);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
 
 			ctx.fillStyle = "#60f";
 			ctx.beginPath();
-			ctx.arc(b.cx, b.cy, 7, 0, Math.PI * 2, true);
+			ctx.arc(b.cx, b.cy, 7 * _TD.retina, 0, Math.PI * 2, true);
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
 
 			ctx.fillStyle = "#000";
 			ctx.beginPath();
-			ctx.arc(b.cx, b.cy, 3, 0, Math.PI * 2, true);
+			ctx.arc(b.cx, b.cy, 3 * _TD.retina, 0, Math.PI * 2, true);
 			ctx.closePath();
 			ctx.fill();
 
 			ctx.fillStyle = "#666";
 			ctx.beginPath();
-			ctx.arc(b.cx + 1, b.cy - 1, 1, 0, Math.PI * 2, true);
+			ctx.arc(b.cx + 1, b.cy - 1, _TD.retina, 0, Math.PI * 2, true);
 			ctx.closePath();
 			ctx.fill();
 
-			ctx.lineWidth = 3;
+			ctx.lineWidth = 3 * _TD.retina;
 			ctx.beginPath();
 			ctx.moveTo(b.cx, b.cy);
 //			b.muzzle = lineTo2(ctx, b.cx, b.cy, target_position[0], target_position[1], gs2);

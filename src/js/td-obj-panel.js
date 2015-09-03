@@ -190,7 +190,8 @@ _TD.a.push(function (TD) {
 	};
 
 	/**
-	 * @param cfg <object> 配置对象
+	 * @param id {String}
+	 * @param cfg {Object} 配置对象
 	 *		 至少需要包含以下项：
 	 *		 {
 	 *			 life: 怪物的生命值
@@ -258,7 +259,7 @@ _TD.a.push(function (TD) {
 			if (!this.el) return;
 			var ctx = TD.ctx;
 
-			ctx.lineWidth = 1 * _TD.retina;
+			ctx.lineWidth = _TD.retina;
 			ctx.fillStyle = "rgba(255, 255, 0, 0.5)";
 			ctx.strokeStyle = "rgba(222, 222, 0, 0.9)";
 			ctx.beginPath();
@@ -279,7 +280,8 @@ _TD.a.push(function (TD) {
 	};
 
 	/**
-	 * @param cfg <object> 配置对象
+	 * @param id {String}
+	 * @param cfg {Object} 配置对象
 	 *		 至少需要包含以下项：
 	 *		 {
 	 *			 scene: scene
@@ -348,7 +350,8 @@ _TD.a.push(function (TD) {
 	};
 
 	/**
-	 * @param cfg <object> 配置对象
+	 * @param id {String}
+	 * @param cfg {Object} 配置对象
 	 *		 至少需要包含以下项：
 	 *		 {
 	 *			 x:
@@ -402,7 +405,8 @@ _TD.a.push(function (TD) {
 	};
 
 	/**
-	 * @param cfg <object> 配置对象
+	 * @param id {String}
+	 * @param cfg {Object} 配置对象
 	 *		 至少需要包含以下项：
 	 *		 {
 	 *			 panel:

@@ -234,7 +234,7 @@ _TD.a.push(function (TD) {
 
 		(renderFunctions[building.type] || renderFunctions["wall"])(
 			building, ctx, map, gs, gs2
-			);
+		);
 	}
 
 }); // _TD.a.push end

@@ -37,11 +37,11 @@ _TD.a.push(function (TD) {
 		 */
 		isOn: function (el) {
 			return (this.ex != -1 &&
-				this.ey != -1 &&
-				this.ex > el.x &&
-				this.ex < el.x2 &&
-				this.ey > el.y &&
-				this.ey < el.y2);
+			this.ey != -1 &&
+			this.ex > el.x &&
+			this.ex < el.x2 &&
+			this.ey > el.y &&
+			this.ey < el.y2);
 		},
 
 		/**
@@ -91,7 +91,9 @@ _TD.a.push(function (TD) {
 		step: function () {
 			if (!this.current_type) return; // 没有事件被触发
 
-			var k, a, el, et, f, en, j,
+			var k, a, el, et, f,
+			//en,
+				j,
 				_this = this,
 				ontypes_len = this.ontypes.length,
 				is_evt_on,
@@ -104,6 +106,7 @@ _TD.a.push(function (TD) {
 			// 遍历当前注册的事件
 			for (k in this._registers) {
 //				reg_length ++;
+				if (!this._registers.hasOwnProperty(k)) continue;
 				a = this._registers[k];
 				el = a[0]; // 事件对应的元素
 				et = a[1]; // 事件类型
@@ -145,8 +148,8 @@ _TD.a.push(function (TD) {
 			}
 
 			// 删除指定元素列表的事件
-			TD.lang.each(to_del_el, function(obj) {
-				for (j = 0; j < ontypes_len; j ++)
+			TD.lang.each(to_del_el, function (obj) {
+				for (j = 0; j < ontypes_len; j++)
 					_this.removeEventListener(obj, _this.ontypes[j]);
 			});
 //			TD.log(reg_length);

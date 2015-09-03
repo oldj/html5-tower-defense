@@ -4,7 +4,6 @@
  * Author: oldj <oldj.wu@gmail.com>
  * Blog: http://oldj.net/
  *
- * Last Update: 2011/1/10 5:22:52
  */
 
 var _TD = {
@@ -138,7 +137,7 @@ var _TD = {
 
 				if (this.is_paused) return;
 
-				this.iframe ++; // 当前总第多少帧
+				this.iframe++; // 当前总第多少帧
 				if (this.iframe % 50 == 0) {
 					// 计算 fps
 					var t = (new Date()).getTime(),
@@ -148,9 +147,9 @@ var _TD = {
 
 					// 动态调整 step_time ，保证 fps 恒定为 24 左右
 					if (this.fps < this._exp_fps_0 && step_time > 1) {
-						step_time --;
+						step_time--;
 					} else if (this.fps > this._exp_fps_1) {
-						step_time ++;
+						step_time++;
 					}
 //					if (step_time != this.step_time)
 //						TD.log("FPS: " + this.fps + ", Step Time: " + step_time);
@@ -225,7 +224,7 @@ var _TD = {
 			}
 		};
 
-		for (i = 0; this.a[i]; i ++) {
+		for (i = 0; this.a[i]; i++) {
 			// 依次执行添加到列表中的函数
 			this.a[i](TD);
 		}

@@ -59,7 +59,7 @@ _TD.a.push(function (TD) {
 		var msg = this._msg_texts[k] || this._msg_texts["_"],
 			i,
 			l = args.length;
-		for (i = 0; i < l; i ++) {
+		for (i = 0; i < l; i++) {
 			msg = msg.replace("${" + i + "}", args[i]);
 		}
 

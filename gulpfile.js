@@ -7,6 +7,11 @@ var uglify = require("gulp-uglify");
 var browserify = require("gulp-browserify");
 var concat = require("gulp-concat");
 var sourcemaps = require("gulp-sourcemaps");
+var args = require("yargs").argv;
+
+var IS_DEBUG = !!args.debug;
+console.log("IS_DEBUG: ", IS_DEBUG);
+console.log("--------------------");
 
 gulp.task("scripts", function () {
 	gulp.src([
@@ -41,7 +46,7 @@ gulp.task("scripts", function () {
 });
 
 gulp.task("default", function () {
-	gulp.start("srcipt");
+	gulp.start("scripts");
 	gulp.watch([
 		"src/**/*.js"
 	], [

@@ -17,10 +17,11 @@
   },
   "homepage": "https://github.com/oldj/html5-tower-defense#readme",
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-browserify": "^0.5.1",
-    "gulp-concat": "^2.6.0",
+    "gulp": "~3.9.0",
+    "gulp-browserify": "~0.5.1",
+    "gulp-concat": "~2.6.0",
     "gulp-sourcemaps": "^1.5.2",
-    "gulp-uglify": "^1.4.0"
+    "gulp-uglify": "~1.4.0",
+    "yargs": "^3.24.0"
   }
 }

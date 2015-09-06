@@ -8,7 +8,7 @@
 
 var _TD = {
 	a: [],
-	retina: 2,
+	retina: window.devicePixelRatio || 1,
 	init: function (td_board, is_debug) {
 		delete this.init; // 一旦初始化运行，即删除这个入口引用，防止初始化方法被再次调用
 

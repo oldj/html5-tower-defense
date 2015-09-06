@@ -1,0 +1,27 @@
+{
+  "name": "html5-tower-defense",
+  "version": "1.0.0",
+  "description": "HTML5 塔防游戏",
+  "main": "td.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oldj/html5-tower-defense.git"
+  },
+  "author": "oldj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oldj/html5-tower-defense/issues"
+  },
+  "homepage": "https://github.com/oldj/html5-tower-defense#readme",
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-browserify": "~0.5.1",
+    "gulp-concat": "~2.6.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "~1.4.0",
+    "yargs": "^3.24.0"
+  }
+}

@@ -267,8 +267,8 @@ _TD.a.push(function (TD) {
 	/**
 	 * @param id {String}
 	 * @param cfg {object} 配置对象
-	 *		 至少需要包含以下项：
-	 *		 {
+	 *         至少需要包含以下项：
+	 *         {
 	 *			 mx: 在 map 格子中的横向坐标,
 	 *			 my: 在 map 格子中的纵向坐标,
 	 *			 map: 属于哪个 map,

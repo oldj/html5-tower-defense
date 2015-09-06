@@ -31,8 +31,11 @@ _TD.a.push(function (TD) {
 			var el = document.createElement(tag_name);
 			attributes = attributes || {};
 
-			for (var k in attributes)
-				el.setAttribute(k, attributes[k]);
+			for (var k in attributes) {
+				if (attributes.hasOwnProperty(k)) {
+					el.setAttribute(k, attributes[k]);
+				}
+			}
 
 			if (parent_node)
 				parent_node.appendChild(el);
@@ -52,14 +55,16 @@ _TD.a.push(function (TD) {
 			if (i <= n) return s2;
 			i -= s2.length;
 			switch (i) {
-				case 0: return s2;
-				case n: return s.slice(0, n >> 1);
+				case 0:
+					return s2;
+				case n:
+					return s.slice(0, n >> 1);
 				default:
 					var k = n - i,
 						s3 = s.slice(k, n),
 						j = s3.replace(/[\x00-\xff]/g, "").length;
 					return j ?
-						s.slice(0, k) + this.arguments.callee(s3, j) :
+					s.slice(0, k) + this.arguments.callee(s3, j) :
 						s.slice(0, k);
 			}
 		},
@@ -82,7 +87,7 @@ _TD.a.push(function (TD) {
 			if (Array.prototype.forEach) {
 				list.forEach(f);
 			} else {
-				for (var i = 0, l = list.length; i < l; i ++) {
+				for (var i = 0, l = list.length; i < l; i++) {
 					f(list[i]);
 				}
 			}
@@ -97,7 +102,7 @@ _TD.a.push(function (TD) {
 		 * @return {Object}
 		 */
 		any: function (list, f) {
-			for (var i = 0, l = list.length; i < l; i ++) {
+			for (var i = 0, l = list.length; i < l; i++) {
 				if (f(list[i]))
 					return list[i];
 			}
@@ -163,7 +168,7 @@ _TD.a.push(function (TD) {
 		/**
 		 * 生成一个长度为 n 的随机字符串
 		 *
-		 * @param n {Number}
+		 * @param [n] {Number}
 		 */
 		rndStr: function (n) {
 			n = n || 16;
@@ -171,7 +176,7 @@ _TD.a.push(function (TD) {
 				a = [],
 				i, chars_len = chars.length, r;
 
-			for (i = 0; i < n; i ++) {
+			for (i = 0; i < n; i++) {
 				r = Math.floor(Math.random() * chars_len);
 				a.push(chars.substr(r, 1));
 			}
@@ -195,7 +200,7 @@ _TD.a.push(function (TD) {
 
 			if (l != arr2.length) return false;
 
-			for (i = 0; i < l; i ++) {
+			for (i = 0; i < l; i++) {
 				if (arr1[i] != arr2[i]) return false;
 			}
 
@@ -206,14 +211,14 @@ _TD.a.push(function (TD) {
 		 * 将所有 s 的属性复制给 r
 		 * @param r {Object}
 		 * @param s {Object}
-		 * @param is_overwrite {Boolean} 如指定为 false ，则不覆盖已有的值，其它值
-		 *	  包括 undefined ，都表示 s 中的同名属性将覆盖 r 中的值
+		 * @param [is_overwrite] {Boolean} 如指定为 false ，则不覆盖已有的值，其它值
+		 *      包括 undefined ，都表示 s 中的同名属性将覆盖 r 中的值
 		 */
 		mix: function (r, s, is_overwrite) {
 			if (!s || !r) return r;
 
 			for (var p in s) {
-				if (is_overwrite !== false || !(p in r)) {
+				if (s.hasOwnProperty(p) && (is_overwrite !== false || !(p in r))) {
 					r[p] = s[p];
 				}
 			}

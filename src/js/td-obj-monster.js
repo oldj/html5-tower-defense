@@ -41,14 +41,14 @@ _TD.a.push(function (TD) {
 			if (this.damage < 1) this.damage = 1;
 
 			this.money = attr.money || Math.floor(
-				Math.sqrt((this.speed + this.life) * (this.shield + 1) * this.damage)
-			);
+					Math.sqrt((this.speed + this.life) * (this.shield + 1) * this.damage)
+				);
 			if (this.money < 1) this.money = 1;
 
 			this.color = attr.color || TD.lang.rndRGB();
-			this.r = Math.floor(this.damage * 1.2);
-			if (this.r < 4) this.r = 4;
-			if (this.r > TD.grid_size / 2 - 4) this.r = TD.grid_size / 2 - 4;
+			this.r = Math.floor(this.damage * 1.2) * _TD.retina;
+			if (this.r < (4 * _TD.retina)) this.r = 4 * _TD.retina;
+			if (this.r > TD.grid_size / 2 - (4 * _TD.retina)) this.r = TD.grid_size / 2 - (4 * _TD.retina);
 			this.render = attr.render;
 
 			this.grid = null; // 当前格子
@@ -104,7 +104,7 @@ _TD.a.push(function (TD) {
 			this.is_valid = false;
 
 			TD.money += this.money;
-			building.killed ++;
+			building.killed++;
 
 			TD.Explode(this.id + "-explode", {
 				cx: this.cx,
@@ -130,9 +130,9 @@ _TD.a.push(function (TD) {
 				function (x, y) {
 					return _this.map.checkPassable(x, y);
 				}
-				);
+			);
 			this.way = fw.way;
-			delete fw;
+			//delete fw;
 		},
 
 		/**
@@ -163,7 +163,7 @@ _TD.a.push(function (TD) {
 		/**
 		 * 取得朝向
 		 * 即下一个格子在当前格子的哪边
-		 *	 0：上；1：右；2：下；3：左
+		 *     0：上；1：右；2：下；3：左
 		 */
 		getToward: function () {
 			if (!this.grid || !this.next_grid) return;
@@ -184,7 +184,7 @@ _TD.a.push(function (TD) {
 		getNextGrid: function () {
 			if (this.way.length == 0 ||
 				Math.random() < 0.1 // 有 1/10 的概率自动重新寻路
-				) {
+			) {
 				this.findWay();
 			}
 
@@ -299,9 +299,10 @@ _TD.a.push(function (TD) {
 	};
 
 	/**
-	 * @param cfg <object> 配置对象
-	 *		 至少需要包含以下项：
-	 *		 {
+	 * @param id {String}
+	 * @param cfg {Object} 配置对象
+	 *         至少需要包含以下项：
+	 *         {
 	 *			 life: 怪物的生命值
 	 *			 shield: 怪物的防御值
 	 *			 speed: 怪物的速度
@@ -327,7 +328,7 @@ _TD.a.push(function (TD) {
 			var rgb = TD.lang.rgb2Arr(cfg.color);
 			this.cx = cfg.cx;
 			this.cy = cfg.cy;
-			this.r = cfg.r;
+			this.r = cfg.r * _TD.retina;
 			this.step_level = cfg.step_level;
 			this.render_level = cfg.render_level;
 
@@ -343,8 +344,8 @@ _TD.a.push(function (TD) {
 		step: function () {
 			if (!this.is_valid) return;
 
-			this.wait --;
-			this.r ++;
+			this.wait--;
+			this.r++;
 
 			this.is_valid = this.wait > 0;
 			this.rgb_a = this.wait / this.wait0;
@@ -362,8 +363,9 @@ _TD.a.push(function (TD) {
 	};
 
 	/**
+	 * @param id {String}
 	 * @param cfg {Object} 配置对象
-	 *		 {
+	 *         {
 	 *			// 至少需要包含以下项：
 	 * 			 cx: 中心 x 坐标
 	 * 			 cy: 中心 y 坐标

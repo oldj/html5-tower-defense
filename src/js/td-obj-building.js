@@ -26,19 +26,19 @@ _TD.a.push(function (TD) {
 
 			/**
 			 * 子弹类型，可以有以下类型：
-			 *		 1：普通子弹
-			 *		 2：激光类，发射后马上命中，暂未实现
-			 *		 3：导弹类，击中后会爆炸，带来面攻击，暂未实现
+			 *         1：普通子弹
+			 *         2：激光类，发射后马上命中，暂未实现
+			 *         3：导弹类，击中后会爆炸，带来面攻击，暂未实现
 			 */
 			this.bullet_type = cfg.bullet_type || 1;
 
 			/**
 			 * type 可能的值有：
-			 *		 "wall": 墙壁，没有攻击性
-			 *		 "cannon": 炮台
-			 *		 "LMG": 轻机枪
-			 *		 "HMG": 重机枪
-			 *		 "laser_gun": 激光枪
+			 *         "wall": 墙壁，没有攻击性
+			 *         "cannon": 炮台
+			 *         "LMG": 轻机枪
+			 *         "HMG": 重机枪
+			 *         "laser_gun": 激光枪
 			 *
 			 */
 			this.type = cfg.type;
@@ -89,10 +89,10 @@ _TD.a.push(function (TD) {
 				// 取消另一个地图中选中建筑的选中状态
 				(
 					this.map.is_main_map ? this.scene.panel_map : this.scene.map
-					).eachBuilding(function (obj) {
+				).eachBuilding(function (obj) {
 						obj.is_selected = false;
 						obj.grid.hightLight(false);
-				});
+					});
 				this.map.selected_building = this;
 
 				if (!this.map.is_main_map) {
@@ -134,15 +134,15 @@ _TD.a.push(function (TD) {
 		updateBtnDesc: function () {
 			this.scene.panel.btn_upgrade.desc = TD._t(
 				"upgrade", [
-				TD._t("building_name_" + this.type),
-				this.level + 1,
-				this.getUpgradeCost()
-			]);
+					TD._t("building_name_" + this.type),
+					this.level + 1,
+					this.getUpgradeCost()
+				]);
 			this.scene.panel.btn_sell.desc = TD._t(
 				"sell", [
-				TD._t("building_name_" + this.type),
-				this.getSellMoney()
-			]);
+					TD._t("building_name_" + this.type),
+					this.getSellMoney()
+				]);
 		},
 
 		/**
@@ -200,7 +200,7 @@ _TD.a.push(function (TD) {
 				TD.lang.rndSort(this.map.monsters), // 将怪物随机排序
 				function (obj) {
 					return Math.pow(obj.cx - cx, 2) + Math.pow(obj.cy - cy, 2) <= range2;
-			});
+				});
 		},
 
 		/**
@@ -245,7 +245,7 @@ _TD.a.push(function (TD) {
 			if (!this.is_weapon || !this.target)
 				return;
 
-			this._fire_wait --;
+			this._fire_wait--;
 			if (this._fire_wait > 0) {
 //			return;
 			} else if (this._fire_wait < 0) {
@@ -282,9 +282,9 @@ _TD.a.push(function (TD) {
 				// 可升级的变量
 				"damage", "range", "speed", "life", "shield"
 			], i, l = attrs.length;
-			for (i = 0; i < l; i ++)
+			for (i = 0; i < l; i++)
 				this._upgrade2(attrs[i]);
-			this.level ++;
+			this.level++;
 			this.range_px = this.range * TD.grid_size;
 		},
 
@@ -323,7 +323,7 @@ _TD.a.push(function (TD) {
 
 		step: function () {
 			if (this.blink) {
-				this.wait_blink --;
+				this.wait_blink--;
 				if (this.wait_blink < -this._default_wait_blink)
 					this.wait_blink = this._default_wait_blink;
 			}
@@ -346,9 +346,9 @@ _TD.a.push(function (TD) {
 					this.map.show_all_ranges
 				) &&
 				this.is_weapon && this.range > 0 && this.grid
-				) {
+			) {
 				// 画射程
-				ctx.lineWidth = 1;
+				ctx.lineWidth = _TD.retina;
 				ctx.fillStyle = "rgba(187, 141, 32, 0.15)";
 				ctx.strokeStyle = "#bb8d20";
 				ctx.beginPath();
@@ -360,14 +360,14 @@ _TD.a.push(function (TD) {
 
 			if (this.type == "laser_gun" && this.target && this.target.is_valid) {
 				// 画激光
-				ctx.lineWidth = 3;
+				ctx.lineWidth = 3 * _TD.retina;
 				ctx.strokeStyle = "rgba(50, 50, 200, 0.5)";
 				ctx.beginPath();
 				ctx.moveTo(this.cx, this.cy);
 				ctx.lineTo(this.target.cx, this.target.cy);
 				ctx.closePath();
 				ctx.stroke();
-				ctx.lineWidth = 1;
+				ctx.lineWidth = _TD.retina;
 				ctx.strokeStyle = "rgba(150, 150, 255, 0.5)";
 				ctx.beginPath();
 				ctx.lineTo(this.cx, this.cy);
@@ -402,9 +402,10 @@ _TD.a.push(function (TD) {
 	};
 
 	/**
-	 * @param cfg <object> 配置对象
-	 *		 至少需要包含以下项：
-	 *		 {
+	 * @param id {String}
+	 * @param cfg {object} 配置对象
+	 *         至少需要包含以下项：
+	 *         {
 	 *			 type: 建筑类型，可选的值有
 	 *				 "wall"
 	 *				 "cannon"
@@ -461,10 +462,10 @@ _TD.a.push(function (TD) {
 				speed;
 			sx = tx - this.cx;
 			sy = ty - this.cy;
-			c = Math.sqrt(Math.pow(sx, 2) + Math.pow(sy, 2)),
-				speed = 20 * this.speed * TD.global_speed,
-				this.vx = sx * speed / c,
-				this.vy = sy * speed / c;
+			c = Math.sqrt(Math.pow(sx, 2) + Math.pow(sy, 2));
+			speed = 20 * this.speed * TD.global_speed;
+			this.vx = sx * speed / c;
+			this.vy = sy * speed / c;
 		},
 
 		/**
@@ -473,10 +474,10 @@ _TD.a.push(function (TD) {
 		checkOutOfMap: function () {
 			this.is_valid = !(
 				this.cx < this.map.x ||
-					this.cx > this.map.x2 ||
-					this.cy < this.map.y ||
-					this.cy > this.map.y2
-				);
+				this.cx > this.map.x2 ||
+				this.cy < this.map.y ||
+				this.cy > this.map.y2
+			);
 
 			return !this.is_valid;
 		},
@@ -487,7 +488,7 @@ _TD.a.push(function (TD) {
 		checkHit: function () {
 			var cx = this.cx,
 				cy = this.cy,
-				r = this.r,
+				r = this.r * _TD.retina,
 				monster = this.map.anyMonster(function (obj) {
 					return Math.pow(obj.cx - cx, 2) + Math.pow(obj.cy - cy, 2) <= Math.pow(obj.r + r, 2) * 2;
 				});
@@ -532,9 +533,10 @@ _TD.a.push(function (TD) {
 	};
 
 	/**
-	 * @param cfg <object> 配置对象
-	 *		 至少需要包含以下项：
-	 *		 {
+	 * @param id {String} 配置对象
+	 * @param cfg {Object} 配置对象
+	 *         至少需要包含以下项：
+	 *         {
 	 *			 x: 子弹发出的位置
 	 *			 y: 子弹发出的位置
 	 *			 speed:
@@ -543,9 +545,9 @@ _TD.a.push(function (TD) {
 	 *			 building: 所属的建筑
 	 *		 }
 	 * 子弹类型，可以有以下类型：
-	 *		 1：普通子弹
-	 *		 2：激光类，发射后马上命中
-	 *		 3：导弹类，击中后会爆炸，带来面攻击
+	 *         1：普通子弹
+	 *         2：激光类，发射后马上命中
+	 *         3：导弹类，击中后会爆炸，带来面攻击
 	 */
 	TD.Bullet = function (id, cfg) {
 		var bullet = new TD.Element(id, cfg);

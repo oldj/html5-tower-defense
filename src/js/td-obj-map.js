@@ -54,7 +54,7 @@ _TD.a.push(function (TD) {
 				grid_data = cfg["grid_data"] || [],
 				d, grid;
 
-			for (i = 0; i < l; i ++) {
+			for (i = 0; i < l; i++) {
 				d = grid_data[i] || {};
 				d.mx = i % this.grid_x;
 				d.my = Math.floor(i / this.grid_x);
@@ -162,7 +162,7 @@ _TD.a.push(function (TD) {
 		 */
 		clearInvalidElements: function () {
 			if (this._wait_clearInvalidElements > 0) {
-				this._wait_clearInvalidElements --;
+				this._wait_clearInvalidElements--;
 				return;
 			}
 			this._wait_clearInvalidElements = _default_wait_clearInvalidElements;
@@ -218,7 +218,7 @@ _TD.a.push(function (TD) {
 
 		/**
 		 * arr 的格式形如：
-		 *	 [[1, 0], [2, 5], [3, 6], [10, 4]...]
+		 *     [[1, 0], [2, 5], [3, 6], [10, 4]...]
 		 */
 		addMonsters2: function (arr) {
 			this._wait_add_monsters_arr = arr;
@@ -239,7 +239,7 @@ _TD.a.push(function (TD) {
 
 			if (this._wait_add_monsters > 0) {
 				this.addMonster(this._wait_add_monsters_objidx);
-				this._wait_add_monsters --;
+				this._wait_add_monsters--;
 			} else if (this._wait_add_monsters_arr.length > 0) {
 				var a = this._wait_add_monsters_arr.shift();
 				this.addMonsters(a[0], a[1]);
@@ -249,7 +249,7 @@ _TD.a.push(function (TD) {
 		render: function () {
 			var ctx = TD.ctx;
 			ctx.strokeStyle = "#99a";
-			ctx.lineWidth = 1;
+			ctx.lineWidth = _TD.retina;
 			ctx.beginPath();
 			ctx.strokeRect(this.x + 0.5, this.y + 0.5, this.width, this.height);
 			ctx.closePath();
@@ -266,9 +266,10 @@ _TD.a.push(function (TD) {
 	};
 
 	/**
-	 * @param cfg <object> 配置对象
-	 *		 至少需要包含以下项：
-	 *		 {
+	 * @param id {String} 配置对象
+	 * @param cfg {Object} 配置对象
+	 *         至少需要包含以下项：
+	 *         {
 	 *			 grid_x: 宽度（格子）,
 	 *			 grid_y: 高度（格子）,
 	 *			 scene: 属于哪个场景,
@@ -315,10 +316,11 @@ _TD.a.push(function (TD) {
 
 	/**
 	 * 地图选中的高亮框
-	 * @param cfg <object> 至少需要包含
-	 *		 {
-	 *			 map: map 对象
-	 *		 }
+	 * @param id {String} 至少需要包含
+	 * @param cfg {Object} 至少需要包含
+	 *      {
+	 *          map: map 对象
+	 *      }
 	 */
 	TD.MapSelectHighLight = function (id, cfg) {
 		var map_selecthl = new TD.Element(id, cfg);

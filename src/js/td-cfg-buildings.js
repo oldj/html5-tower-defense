@@ -4,9 +4,6 @@
  * Author: oldj <oldj.wu@gmail.com>
  * Blog: http://oldj.net/
  *
- * Last Update: 2011/1/10 5:22:52
- */
-/**
  * 本文件定义了建筑的参数、属性
  */
 

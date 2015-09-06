@@ -4,9 +4,8 @@
  * Author: oldj <oldj.wu@gmail.com>
  * Blog: http://oldj.net/
  *
- * Last Update: 2011/1/10 5:22:52
- */
-/** 本文件定义了 Element 类，这个类是游戏中所有元素的基类，
+ *
+ * 本文件定义了 Element 类，这个类是游戏中所有元素的基类，
  * 包括地图、格子、怪物、建筑、子弹、气球提示等都基于这个类
  *
  */
@@ -45,7 +44,7 @@ _TD.a.push(function (TD) {
 				i, en, len;
 
 			// 监听指定事件
-			for (i = 0, len = this.on_events.length; i < len; i ++) {
+			for (i = 0, len = this.on_events.length; i < len; i++) {
 				en = this.on_events[i];
 				switch (en) {
 

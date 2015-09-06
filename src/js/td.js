@@ -4,11 +4,11 @@
  * Author: oldj <oldj.wu@gmail.com>
  * Blog: http://oldj.net/
  *
- * Last Update: 2011/1/10 5:22:52
  */
 
 var _TD = {
 	a: [],
+	retina: window.devicePixelRatio || 1,
 	init: function (td_board, is_debug) {
 		delete this.init; // 一旦初始化运行，即删除这个入口引用，防止初始化方法被再次调用
 
@@ -28,8 +28,8 @@ var _TD = {
 			defaultSettings: function () {
 				return {
 					step_time: 36, // 每一次 step 循环之间相隔多少毫秒
-					grid_size: 32, // px
-					padding: 10, // px
+					grid_size: 32 * _TD.retina, // px
+					padding: 10 * _TD.retina, // px
 					global_speed: 0.1 // 全局速度系数
 				};
 			},
@@ -69,6 +69,8 @@ var _TD = {
 
 				this.canvas.setAttribute("width", this.stage.width);
 				this.canvas.setAttribute("height", this.stage.height);
+				this.canvas.style.width = (this.stage.width / _TD.retina) + "px";
+				this.canvas.style.height = (this.stage.height / _TD.retina) + "px";
 
 				this.canvas.onmousemove = function (e) {
 					var xy = _this.getEventXY.call(_this, e);
@@ -135,7 +137,7 @@ var _TD = {
 
 				if (this.is_paused) return;
 
-				this.iframe ++; // 当前总第多少帧
+				this.iframe++; // 当前总第多少帧
 				if (this.iframe % 50 == 0) {
 					// 计算 fps
 					var t = (new Date()).getTime(),
@@ -145,9 +147,9 @@ var _TD = {
 
 					// 动态调整 step_time ，保证 fps 恒定为 24 左右
 					if (this.fps < this._exp_fps_0 && step_time > 1) {
-						step_time --;
+						step_time--;
 					} else if (this.fps > this._exp_fps_1) {
-						step_time ++;
+						step_time++;
 					}
 //					if (step_time != this.step_time)
 //						TD.log("FPS: " + this.fps + ", Step Time: " + step_time);
@@ -173,7 +175,7 @@ var _TD = {
 					x = e.clientX - wra.offsetLeft - this.canvas.offsetLeft + Math.max(document.documentElement.scrollLeft, document.body.scrollLeft),
 					y = e.clientY - wra.offsetTop - this.canvas.offsetTop + Math.max(document.documentElement.scrollTop, document.body.scrollTop);
 
-				return [x, y];
+				return [x * _TD.retina, y * _TD.retina];
 			},
 
 			/**
@@ -222,7 +224,7 @@ var _TD = {
 			}
 		};
 
-		for (i = 0; this.a[i]; i ++) {
+		for (i = 0; this.a[i]; i++) {
 			// 依次执行添加到列表中的函数
 			this.a[i](TD);
 		}

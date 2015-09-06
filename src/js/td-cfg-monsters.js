@@ -4,9 +4,7 @@
  * Author: oldj <oldj.wu@gmail.com>
  * Blog: http://oldj.net/
  *
- * Last Update: 2011/1/10 5:22:52
- */
-/** 本文件定义了怪物默认属性及渲染方法
+ * 本文件定义了怪物默认属性及渲染方法
  */
 
 
@@ -33,21 +31,21 @@ _TD.a.push(function (TD) {
 		// 画怪物的生命值
 		if (TD.show_monster_life) {
 			var s = Math.floor(TD.grid_size / 4),
-				l = s * 2 - 2;
+				l = s * 2 - 2 * _TD.retina;
 			ctx.fillStyle = "#000";
 			ctx.beginPath();
-			ctx.fillRect(this.cx - s, this.cy - this.r - 6, s * 2, 4);
+			ctx.fillRect(this.cx - s, this.cy - this.r - 6, s * 2, 4 * _TD.retina);
 			ctx.closePath();
 			ctx.fillStyle = "#f00";
 			ctx.beginPath();
-			ctx.fillRect(this.cx - s + 1, this.cy - this.r - 5, this.life * l / this.life0, 2);
+			ctx.fillRect(this.cx - s + _TD.retina, this.cy - this.r - (6 - _TD.retina), this.life * l / this.life0, 2 * _TD.retina);
 			ctx.closePath();
 		}
 	}
 
 	/**
 	 * 取得怪物的默认属性
-	 * @param monster_idx {Number} 怪物的类型
+	 * @param [monster_idx] {Number} 怪物的类型
 	 * @return attributes {Object}
 	 */
 	TD.getDefaultMonsterAttributes = function (monster_idx) {
@@ -173,7 +171,7 @@ _TD.a.push(function (TD) {
 		var a = [], count = 0, i, c, d, r, l = TD.monster_type_count;
 		if (!range) {
 			range = [];
-			for (i = 0; i < l; i ++) {
+			for (i = 0; i < l; i++) {
 				range.push(i);
 			}
 		}
@@ -181,9 +179,9 @@ _TD.a.push(function (TD) {
 		while (count < n) {
 			d = n - count;
 			c = Math.min(
-					Math.floor(Math.random() * d) + 1,
-					3 // 同一类型的怪物一次最多出现 3 个，防止某一波中怪出大量高防御或高速度的怪
-	 			);
+				Math.floor(Math.random() * d) + 1,
+				3 // 同一类型的怪物一次最多出现 3 个，防止某一波中怪出大量高防御或高速度的怪
+			);
 			r = Math.floor(Math.random() * l);
 			a.push([c, range[r]]);
 			count += c;

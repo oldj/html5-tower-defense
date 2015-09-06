@@ -19,13 +19,13 @@ _TD.a.push(function (TD) {
 	TD.Stage = function (id, cfg) {
 		this.id = id || ("stage-" + TD.lang.rndStr());
 		this.cfg = cfg || {};
-		this.width = this.cfg.width || 600;
+		this.width = this.cfg.width || 640;
 		this.height = this.cfg.height || 540;
 
 		/**
 		 * mode 有以下状态：
-		 *		 "normal": 普通状态
-		 *		 "build": 建造模式
+		 *         "normal": 普通状态
+		 *         "build": 建造模式
 		 */
 		this.mode = "normal";
 
@@ -306,7 +306,7 @@ _TD.a.push(function (TD) {
 			}
 
 			var i, a;
-			for (i = 0; i < 3; i ++) {
+			for (i = 0; i < 3; i++) {
 				a = [];
 				var level_elements = this._step_elements[i];
 				TD.lang.shift(level_elements, function (obj) {
@@ -330,7 +330,7 @@ _TD.a.push(function (TD) {
 
 			ctx.clearRect(0, 0, this.stage.width, this.stage.height);
 
-			for (i = 0; i < 10; i ++) {
+			for (i = 0; i < 10; i++) {
 				a = [];
 				var level_elements = this._render_elements[i];
 				TD.lang.shift(level_elements, function (obj) {

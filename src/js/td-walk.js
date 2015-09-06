@@ -44,7 +44,7 @@ _TD.a.push(function (TD) {
 				return;
 			}
 
-			for (var i = 0; i < this.len; i ++)
+			for (var i = 0; i < this.len; i++)
 				this.m[i] = -2; // -2 表示未探索过，-1 表示不可到达
 
 			this.x = this.x1;
@@ -56,7 +56,8 @@ _TD.a.push(function (TD) {
 
 			this.setVal(this.x, this.y, 0);
 
-			while (this.next()) {}
+			while (this.next()) {
+			}
 		},
 		getVal: function (x, y) {
 			var p = y * this.w + x;
@@ -87,7 +88,7 @@ _TD.a.push(function (TD) {
 		 */
 		getAllNeighbors: function () {
 			var nbs = [], nb1, i, c, l = this.current.length;
-			for (i = 0; i < l; i ++) {
+			for (i = 0; i < l; i++) {
 				c = this.current[i];
 				nb1 = this.getNeighborsOf(c[0], c[1]);
 				nbs = nbs.concat(nb1);
@@ -104,14 +105,14 @@ _TD.a.push(function (TD) {
 		 */
 		findWay: function () {
 			var x = this.x2,
-					y = this.y2,
-					nb, max_len = this.len,
-					nbs_len,
-					nbs, i, l, v, min_v = -1,
-					closest_nbs;
+				y = this.y2,
+				nb, max_len = this.len,
+				nbs_len,
+				nbs, i, l, v, min_v = -1,
+				closest_nbs;
 
 			while ((x != this.x1 || y != this.y1) && min_v != 0 &&
-				this.way.length < max_len) {
+			this.way.length < max_len) {
 
 				this.way.unshift([x, y]);
 
@@ -121,14 +122,14 @@ _TD.a.push(function (TD) {
 
 				// 在邻格中寻找最小的 v
 				min_v = -1;
-				for (i = 0; i < nbs_len; i ++) {
+				for (i = 0; i < nbs_len; i++) {
 					v = this.getVal(nbs[i][0], nbs[i][1]);
 					if (v < 0) continue;
 					if (min_v < 0 || min_v > v)
 						min_v = v;
 				}
 				// 找出所有 v 最小的邻格
-				for (i = 0; i < nbs_len; i ++) {
+				for (i = 0; i < nbs_len; i++) {
 					nb = nbs[i];
 					if (min_v == this.getVal(nb[0], nb[1])) {
 						closest_nbs.push(nb);
@@ -167,14 +168,14 @@ _TD.a.push(function (TD) {
 		 */
 		next: function () {
 			var neighbors = this.getAllNeighbors(), nb,
-					l = neighbors.length,
-					valid_neighbors = [],
-					x, y,
-					i, v;
+				l = neighbors.length,
+				valid_neighbors = [],
+				x, y,
+				i, v;
 
-			this.distance ++;
+			this.distance++;
 
-			for (i = 0; i < l; i ++) {
+			for (i = 0; i < l; i++) {
 				nb = neighbors[i];
 				x = nb[0];
 				y = nb[1];

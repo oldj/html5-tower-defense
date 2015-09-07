@@ -36,19 +36,21 @@ _TD.a.push(function (TD) {
 		 * @return {Boolean}
 		 */
 		isOn: function (el) {
-			return (this.ex != -1 &&
-			this.ey != -1 &&
-			this.ex > el.x &&
-			this.ex < el.x2 &&
-			this.ey > el.y &&
-			this.ey < el.y2);
+			return (
+				this.ex != -1
+				&& this.ey != -1
+				&& this.ex > el.x
+				&& this.ex < el.x2
+				&& this.ey > el.y
+				&& this.ey < el.y2
+			);
 		},
 
 		/**
 		 * 根据元素名、事件名，生成一个字符串标识，用于注册事件监听
 		 * @param el {Element}
 		 * @param evt_type {String}
-		 * @return evt_name {String} 字符串标识
+		 * @return {String} 字符串标识
 		 */
 		_mkElEvtName: function (el, evt_type) {
 			return el.id + "::_evt_::" + evt_type;

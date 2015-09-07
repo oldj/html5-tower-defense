@@ -214,7 +214,7 @@ _TD.a.push(function (TD) {
 			cfg = cfg || {};
 			this.scene = cfg.scene;
 		},
-		caculatePos: function () {
+		calculatePos: function () {
 			var el = this.el;
 
 			this.x = el.cx + 0.5;
@@ -239,7 +239,7 @@ _TD.a.push(function (TD) {
 
 			if (el && el.cx && el.cy) {
 				this.el = el;
-				this.caculatePos();
+				this.calculatePos();
 
 				this.show();
 			}
@@ -252,7 +252,7 @@ _TD.a.push(function (TD) {
 
 			if (this.el.is_monster) {
 				// monster 会移动，所以需要重新计算 tip 的位置
-				this.caculatePos();
+				this.calculatePos();
 			}
 		},
 		render: function () {
@@ -312,7 +312,7 @@ _TD.a.push(function (TD) {
 			this.desc = cfg.desc || "";
 
 			this.addToScene(this.scene, this.step_level, this.render_level);
-			this.caculatePos();
+			this.calculatePos();
 		},
 		onEnter: function () {
 			TD.mouseHand(true);

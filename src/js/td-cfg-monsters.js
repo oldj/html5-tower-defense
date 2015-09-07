@@ -46,7 +46,7 @@ _TD.a.push(function (TD) {
 	/**
 	 * 取得怪物的默认属性
 	 * @param [monster_idx] {Number} 怪物的类型
-	 * @return attributes {Object}
+	 * @return {Object}
 	 */
 	TD.getDefaultMonsterAttributes = function (monster_idx) {
 

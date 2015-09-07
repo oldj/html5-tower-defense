@@ -61,7 +61,7 @@ _TD.a.push(function (TD) {
 
 			this.is_blocked = false; // 前进的道路是否被阻塞了
 		},
-		caculatePos: function () {
+		calculatePos: function () {
 //		if (!this.map) return;
 			var r = this.r;
 			this.x = this.cx - r;
@@ -274,7 +274,7 @@ _TD.a.push(function (TD) {
 				}
 			}
 
-			this.caculatePos();
+			this.calculatePos();
 		},
 
 		onEnter: function () {

@@ -55,7 +55,7 @@ _TD.a.push(function (TD) {
 			this.range_px = this.range * TD.grid_size;
 			this.money = this.cost; // 购买、升级本建筑已花费的钱
 
-			this.caculatePos();
+			this.calculatePos();
 		},
 
 		/**
@@ -184,7 +184,7 @@ _TD.a.push(function (TD) {
 		/**
 		 * 寻找一个目标（怪物）
 		 */
-		findTaget: function () {
+		findTarget: function () {
 			if (!this.is_weapon || this.is_pre_building || !this.grid) return;
 
 			var cx = this.cx, cy = this.cy,
@@ -328,7 +328,7 @@ _TD.a.push(function (TD) {
 					this.wait_blink = this._default_wait_blink;
 			}
 
-			this.findTaget();
+			this.findTarget();
 			this.tryToFire();
 		},
 
@@ -448,14 +448,14 @@ _TD.a.push(function (TD) {
 			this.addToScene(this.map.scene, 1, 6);
 
 			if (this.type == 1) {
-				this.caculate();
+				this.calculate();
 			}
 		},
 
 		/**
 		 * 计算子弹的一些数值
 		 */
-		caculate: function () {
+		calculate: function () {
 			var sx, sy, c,
 				tx = this.target.cx,
 				ty = this.target.cy,

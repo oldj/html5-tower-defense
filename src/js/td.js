@@ -62,7 +62,7 @@ var _TD = {
 				this._exp_fps_0 = this.exp_fps - 0.4; // 下限
 				this._exp_fps_1 = this.exp_fps + 0.4; // 上限
 
-				this.mode = "normal"; // mode 分为 normail（普通模式）及 build（建造模式）两种
+				this.mode = "normal"; // mode 分为 normal（普通模式）及 build（建造模式）两种
 				this.eventManager.clear(); // 清除事件管理器中监听的事件
 				this.lang.mix(this, this.defaultSettings());
 				this.stage = new TD.Stage("stage-main", TD.getDefaultStageData("stage_main"));

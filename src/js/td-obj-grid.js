@@ -26,13 +26,13 @@ _TD.a.push(function (TD) {
 			this.passable_flag = 1; // 0: 不可通过; 1: 可通过
 			this.build_flag = 1;// 0: 不可修建; 1: 可修建; 2: 已修建
 			this.building = null;
-			this.caculatePos();
+			this.calculatePos();
 		},
 
 		/**
 		 * 根据 map 位置及本 grid 的 (mx, my) ，计算格子的位置
 		 */
-		caculatePos: function () {
+		calculatePos: function () {
 			this.x = this.map.x + this.mx * TD.grid_size;
 			this.y = this.map.y + this.my * TD.grid_size;
 			this.x2 = this.x + TD.grid_size;

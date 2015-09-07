@@ -14,7 +14,7 @@ _TD.a.push(function (TD) {
 	 * 默认的升级规则
 	 * @param old_level {Number}
 	 * @param old_value {Number}
-	 * @return new_value {Number}
+	 * @return {Number}
 	 */
 	TD.default_upgrade_rule = function (old_level, old_value) {
 		return old_value * 1.2;

@@ -77,12 +77,12 @@ _TD.a.push(function (TD) {
 						break;
 				}
 			}
-			this.caculatePos();
+			this.calculatePos();
 		},
 		/**
 		 * 重新计算元素的位置信息
 		 */
-		caculatePos: function () {
+		calculatePos: function () {
 			this.cx = this.x + this.width / 2; // 中心的位置
 			this.cy = this.y + this.height / 2;
 			this.x2 = this.x + this.width; // 右边界

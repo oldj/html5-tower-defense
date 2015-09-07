@@ -12,7 +12,7 @@
 _TD.a.push(function (TD) {
 
 	/**
-	 * 使用 A* 算法（Dijkstra算法？）寻找从 (x1, y1) 到 (x2, y2) 最短的路线
+	 * 使用 Dijkstra 算法寻找从 (x1, y1) 到 (x2, y2) 最短的路线
 	 *
 	 */
 	TD.FindWay = function (w, h, x1, y1, x2, y2, f_passable) {

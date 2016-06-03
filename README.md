@@ -36,11 +36,11 @@
 
 为方便测试，本游戏内置了几个作弊方法，在命令行中执行如下命令即可：
 
- 1. 增加 100 万金钱：`_TD.cheat="money+";void(0);`
- 2. 难度增倍：`_TD.cheat="difficulty+";void(0);`
- 3. 难度减半：`_TD.cheat="difficulty-";void(0);`
- 4. 生命值恢复：`_TD.cheat="life+";void(0);`
- 5. 生命值降为最低：`_TD.cheat="life-";void(0);`
+ 1. 增加 100 万金钱：`_TD.cheat="money+";`
+ 2. 难度增倍：`_TD.cheat="difficulty+";`
+ 3. 难度减半：`_TD.cheat="difficulty-";`
+ 4. 生命值恢复：`_TD.cheat="life+";`
+ 5. 生命值降为最低：`_TD.cheat="life-";`
 
 注意，以上作弊方法主要是为测试设计，正常游戏过程中请酌情使用，否则可能会降低游戏乐趣。
 

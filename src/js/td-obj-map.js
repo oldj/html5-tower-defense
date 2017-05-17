@@ -25,7 +25,7 @@ _TD.a.push(function (TD) {
 			this.width = this.grid_x * TD.grid_size;
 			this.height = this.grid_y * TD.grid_size;
 			this.x2 = this.x + this.width;
-			this.y2 = this.y + this.width;
+			this.y2 = this.y + this.height;
 			this.grids = [];
 			this.entrance = this.exit = null;
 			this.buildings = [];

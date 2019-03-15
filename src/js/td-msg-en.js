@@ -23,7 +23,7 @@ _TD.a.push(function (TD) {
 		"panel_life_title": "Life: ",
 		"panel_building_title": "Buildings: ",
 		"panel_monster_title": "Monsters: ",
-		"building_name_block": "Roadblock",
+		"building_name_wall": "Roadblock",
 		"building_name_cannon": "Cannon",
 		"building_name_LMG": "LMG",
 		"building_name_HMG": "HMG",
